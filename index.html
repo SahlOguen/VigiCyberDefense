@@ -3,64 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VigiCyberDefense | Conseil en Cybersécurité</title>
-    <meta name="description" content="VigiCyberDefense- Votre partenaire en sécurité numérique. Nous protégeons votre entreprise contre les cybermenaces avec des solutions sur mesure.">
+    <title>VigiCyberDefense | Conseil en Cybers&eacute;curit&eacute;</title>
+    <!-- Font Awesome pour les icônes professionnelles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="VigiCyberDefense - Votre partenaire en s&eacute;curit&eacute; num&eacute;rique.">
     <style>
-        /* Variables CSS */
         :root {
             --primary: #1a365d;
             --secondary: #2d3748;
             --accent: #3182ce;
             --light: #f7fafc;
             --dark: #1a202c;
-            --success: #38a169;
-            --danger: #e53e3e;
-            --warning: #dd6b20;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
-
-        /* Reset et styles de base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--light);
         }
-
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-
         h1, h2, h3, h4, h5, h6 {
             margin-bottom: 1rem;
             color: var(--primary);
             font-weight: 700;
         }
-
         p {
             margin-bottom: 1rem;
         }
-
         a {
             text-decoration: none;
             color: var(--accent);
             transition: var(--transition);
         }
-
         a:hover {
             color: var(--primary);
         }
-
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -73,41 +62,34 @@
             text-align: center;
             transition: var(--transition);
         }
-
         .btn:hover {
             background-color: var(--primary);
             color: white;
             transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
-
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--accent);
             color: var(--accent);
         }
-
         .btn-outline:hover {
             background-color: var(--accent);
             color: white;
         }
-
         section {
             padding: 80px 0;
         }
-
         .section-title {
             text-align: center;
             margin-bottom: 50px;
         }
-
         .section-title h2 {
             font-size: 2.5rem;
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
         }
-
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -118,8 +100,6 @@
             height: 3px;
             background-color: var(--accent);
         }
-
-        /* Header */
         header {
             background-color: white;
             box-shadow: var(--shadow);
@@ -128,83 +108,75 @@
             top: 0;
             z-index: 1000;
         }
-
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
-
         .logo {
+            display: flex;
+            align-items: center;
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
         }
-
+        .logo img {
+            height: 120px;
+            width: auto;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
         .logo span {
             color: var(--accent);
         }
-
         .nav-links {
             display: flex;
             list-style: none;
         }
-
         .nav-links li {
             margin-left: 30px;
         }
-
         .nav-links a {
             color: var(--secondary);
             font-weight: 500;
         }
-
         .nav-links a:hover {
             color: var(--accent);
         }
-
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
         }
-
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 180px 0 100px;
+            padding: 200px 0 100px;
             text-align: center;
         }
-
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             color: white;
         }
-
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 30px;
         }
-
         .hero-btns {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
-
-        /* Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-
         .service-card {
             background-color: white;
             border-radius: 8px;
@@ -213,67 +185,99 @@
             transition: var(--transition);
             text-align: center;
         }
-
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
         .service-icon {
             font-size: 3rem;
             color: var(--accent);
             margin-bottom: 20px;
+            display: inline-block;
         }
-
         .service-card h3 {
             margin-bottom: 15px;
         }
-
-        /* About Section */
         .about {
             background-color: var(--primary);
             color: white;
         }
-
         .about .section-title h2 {
             color: white;
         }
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
         }
-
         .about-text h2 {
             color: white;
             margin-bottom: 20px;
         }
-
         .about-image {
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
         }
-
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
         }
-
-        /* Testimonials Section */
+        .team {
+            background-color: #ffffff;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .team-card {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 30px 20px 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 18px;
+            display: block;
+            border: 4px solid var(--accent);
+        }
+        .team-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .team-card .title {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .team-card p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 0;
+        }
         .testimonials {
             background-color: #f8f9fa;
         }
-
         .testimonial-slider {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
         }
-
         .testimonial {
             background-color: white;
             padding: 30px;
@@ -281,14 +285,12 @@
             box-shadow: var(--shadow);
             text-align: center;
         }
-
         .client-info {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: 20px;
         }
-
         .client-avatar {
             width: 60px;
             height: 60px;
@@ -296,54 +298,45 @@
             overflow: hidden;
             margin-right: 15px;
         }
-
         .client-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
-        /* Contact Section */
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-
         .contact-info {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-
         .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 15px;
         }
-
         .contact-icon {
             font-size: 1.5rem;
             color: var(--accent);
+            width: 30px;
         }
-
         .contact-form {
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: var(--shadow);
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-
         .form-control {
             width: 100%;
             padding: 12px 15px;
@@ -352,60 +345,48 @@
             font-family: inherit;
             transition: var(--transition);
         }
-
         .form-control:focus {
             border-color: var(--accent);
             outline: none;
             box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
         }
-
         textarea.form-control {
             min-height: 150px;
             resize: vertical;
         }
-
-        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
             padding: 60px 0 20px;
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-
         .footer-column h3 {
             color: white;
             margin-bottom: 20px;
             font-size: 1.2rem;
         }
-
         .footer-links {
             list-style: none;
         }
-
         .footer-links li {
             margin-bottom: 10px;
         }
-
         .footer-links a {
             color: #a0aec0;
         }
-
         .footer-links a:hover {
             color: white;
         }
-
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-
         .social-links a {
             display: flex;
             align-items: center;
@@ -417,12 +398,10 @@
             color: white;
             transition: var(--transition);
         }
-
         .social-links a:hover {
             background-color: var(--accent);
             transform: translateY(-3px);
         }
-
         .copyright {
             text-align: center;
             padding-top: 20px;
@@ -430,19 +409,15 @@
             color: #a0aec0;
             font-size: 0.9rem;
         }
-
-        /* Responsive */
         @media (max-width: 992px) {
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
             }
-
             .hero h1 {
                 font-size: 2.8rem;
             }
         }
-
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -455,138 +430,174 @@
                 padding: 20px;
                 box-shadow: var(--shadow);
             }
-
             .nav-links.active {
                 display: flex;
             }
-
             .nav-links li {
                 margin: 10px 0;
             }
-
             .mobile-menu {
                 display: block;
             }
-
             .hero h1 {
                 font-size: 2.2rem;
             }
-
             .hero-btns {
                 flex-direction: column;
                 gap: 10px;
             }
-
             .btn {
                 width: 100%;
                 max-width: 300px;
+            }
+            .logo img {
+                height: 80px;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Vigi<span>Cyber<span>Defense</span></a>
+                <a href="#" class="logo">
+                    <img src="VigiCyberDefense_logo.png" alt="VigiCyberDefense">
+                    <span>Vigi<span>Cyber</span>Defense</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#apropos">À propos</a></li>
-                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#apropos">&Agrave; propos</a></li>
+                    <li><a href="#equipe">&Eacute;quipe</a></li>
+                    <li><a href="#temoignages">T&eacute;moignages</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="mobile-menu">☰</div>
+                <div class="mobile-menu">?</div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="container">
-            <h1>Protégez votre petite et moyenne entreprise contre les cybermenaces</h1>
-            <p>VigiCyberDefense est votre partenaire de confiance en cybersécurité. Nous fournissons des solutions sur mesure pour protéger des petites et moyennes entreprises ,startups et autres activites du secteur informel vos données et systèmes contre les attaques numériques.</p>
+            <h1>Prot&eacute;gez votre petite et moyenne entreprise contre les cybermenaces</h1>
+            <p>VigiCyberDefense est votre partenaire de confiance en cybers&eacute;curit&eacute;. Nous fournissons des solutions sur mesure pour prot&eacute;ger les entreprises, startups et activit&eacute;s du secteur informel.</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn">Demander un audit gratuit</a>
-                <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+                <a href="#services" class="btn btn-outline">D&eacute;couvrir nos services</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services">
         <div class="container">
             <div class="section-title">
                 <h2>Nos Services</h2>
-                <p>Des solutions complètes pour sécuriser votre infrastructure numérique</p>
+                <p>Des solutions compl&egrave;tes pour s&eacute;curiser votre infrastructure num&eacute;rique</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🔒</div>
-                    <h3>Audit de Sécurité</h3>
-                    <p>Évaluation complète de votre infrastructure pour identifier les vulnérabilités et recommander des mesures correctives.</p>
+                    <div class="service-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Audit de S&eacute;curit&eacute;</h3>
+                    <p>&Eacute;valuation compl&egrave;te pour identifier les vuln&eacute;rabilit&eacute;s et recommander des mesures correctives.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Protection des Données</h3>
-                    <p>Solutions de chiffrement et de sauvegarde pour protéger vos données sensibles contre les fuites et les pertes.</p>
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Protection des Donn&eacute;es</h3>
+                    <p>Chiffrement et sauvegarde pour prot&eacute;ger vos donn&eacute;es sensibles contre les fuites et les pertes.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3>Détection d'Intrusions</h3>
-                    <p>Systèmes de surveillance avancés pour détecter et répondre rapidement aux activités suspectes sur votre réseau.</p>
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>D&eacute;tection d'Intrusions</h3>
+                    <p>Surveillance avanc&eacute;e pour d&eacute;tecter et r&eacute;pondre aux activit&eacute;s suspectes sur votre r&eacute;seau.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3>Création & Sécurisation de site Web</h3>
-                    <p>Accompagnement pour creer et sécuriser un site vitrine pour votre entreprise en conformité avec les réglementations sur la protection des données.</p>
+                    <div class="service-icon"><i class="fas fa-file-code"></i></div>
+                    <h3>Cr&eacute;ation &amp; S&eacute;curisation de site Web</h3>
+                    <p>Accompagnement pour cr&eacute;er et s&eacute;curiser un site vitrine conforme aux r&eacute;glementations.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🚨</div>
-                    <h3>Réponse aux Incidents</h3>
-                    <p>Intervention rapide en cas de cyberattaque pour limiter les dégâts et restaurer vos systèmes.</p>
+                    <div class="service-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>R&eacute;ponse aux Incidents</h3>
+                    <p>Intervention rapide en cas de cyberattaque pour limiter les d&eacute;g&acirc;ts et restaurer vos syst&egrave;mes.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">👨‍💼</div>
-                    <h3>Formation des Employés</h3>
-                    <p>Sessions de sensibilisation pour former votre personnel aux bonnes pratiques de sécurité informatique.</p>
+                    <div class="service-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Formation des Employ&eacute;s</h3>
+                    <p>Sessions de sensibilisation aux bonnes pratiques de s&eacute;curit&eacute; informatique.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="apropos">
         <div class="container">
             <div class="section-title">
-                <h2>À Propos de Nous</h2>
+                <h2>&Agrave; Propos de Nous</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Notre Expertise au Service de Votre Sécurité</h2>
-                    <p>Fondé en 2024, VigiCyberDefense rassemble une équipe de trois(3)experts en cybersécurité passionnés par la protection des entreprises contre les menaces numériques.</p>
-                    <p>Notre approche combine une expertise technique pointue avec une compréhension approfondie des enjeux business de nos clients. Nous travaillons avec des entreprises de  tailles moyennes en l'occurence, des TPE et PME, des startups et des particuliers.</p>
-                    <p>Notre mission est simple : vous permettre de concentrer vos efforts sur votre cœur de métier en vous libérant des préoccupations liées à la sécurité informatique.</p>
+                    <h2>Notre Expertise au Service de Votre S&eacute;curit&eacute;</h2>
+                    <p>Fond&eacute; en 2024, VigiCyberDefense rassemble une &eacute;quipe de trois experts en cybers&eacute;curit&eacute; passionn&eacute;s par la protection des entreprises contre les menaces num&eacute;riques.</p>
+                    <p>Notre approche combine une expertise technique pointue avec une compr&eacute;hension approfondie des enjeux business. Nous travaillons avec des TPE, PME, startups et particuliers.</p>
+                    <p>Notre mission : vous permettre de concentrer vos efforts sur votre c&oelig;ur de m&eacute;tier en vous lib&eacute;rant des pr&eacute;occupations li&eacute;es &agrave; la s&eacute;curit&eacute; informatique.</p>
                     <a href="#contact" class="btn">Prendre contact</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1563013546-91b5d36402f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Équipe VigiCyberDefense">
+                    <img src="https://images.unsplash.com/photo-1563013546-91b5d36402f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="&Eacute;quipe">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <section class="team" id="equipe">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre &Eacute;quipe de Direction</h2>
+                <p>Trois experts passionn&eacute;s pour prot&eacute;ger votre entreprise</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Alain K.">
+                    <h3>Dr. Alain K.</h3>
+                    <div class="title">CEO &amp; Fondateur</div>
+                    <p>Expert en cybers&eacute;curit&eacute; avec plus de 15 ans d'exp&eacute;rience dans les infrastructures critiques.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mme Sophie L.">
+                    <h3>Mme Sophie L.</h3>
+                    <div class="title">Directrice Technique (CTO)</div>
+                    <p>Sp&eacute;cialiste en s&eacute;curit&eacute; des r&eacute;seaux et architecture cloud. Supervise toutes les missions techniques.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="M. Marc D.">
+                    <h3>M. Marc D.</h3>
+                    <div class="title">Responsable des Op&eacute;rations</div>
+                    <p>G&egrave;re la relation client et la coordination des &eacute;quipes sur le terrain pour une r&eacute;activit&eacute; optimale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="temoignages" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>Témoignages Clients</h2>
-                <p>Découvrez ce que nos clients disent de notre collaboration</p>
+                <h2>T&eacute;moignages Clients</h2>
+                <p>D&eacute;couvrez ce que nos clients disent de notre collaboration</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial">
-                    <p>"VigiCyberDefense a réalisé un audit complet de notre système d'information et identifié des vulnérabilités critiques que nous avions négligées. Leurs recommandations nous ont permis de renforcer considérablement notre sécurité."</p>
+                    <p>"VigiCyberDefense a r&eacute;alis&eacute; un audit complet de notre syst&egrave;me d'information et identifi&eacute; des vuln&eacute;rabilit&eacute;s critiques que nous avions n&eacute;glig&eacute;es. Leurs recommandations nous ont permis de renforcer consid&eacute;rablement notre s&eacute;curit&eacute;."</p>
                     <div class="client-info">
                         <div class="client-avatar">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
@@ -601,41 +612,40 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <div class="section-title">
                 <h2>Contactez-Nous</h2>
-                <p>Discutons de vos besoins en cybersécurité</p>
+                <p>Discutons de vos besoins en cybers&eacute;curit&eacute;</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h3>Adresse</h3>
-                            <p>rua 28 D'Agosto Rua 4 CAsa 5 Golf2<br>Luanda, Angola</p>
+                            <p>Rua 28 d'Agosto, Rua 4, Casa 5, Golf 2<br>Luanda, Angola</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
-                            <h3>Téléphone</h3>
+                            <h3>T&eacute;l&eacute;phone</h3>
                             <p>+244 957 157 011</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h3>Email</h3>
                             <p>cmconsulting@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div>
                             <h3>Horaires</h3>
-                            <p>Lun - Ven: 9h00 - 18h00</p>
+                            <p>Lun - Ven : 9h00 - 18h00</p>
                         </div>
                     </div>
                 </div>
@@ -654,15 +664,15 @@
                             <input type="text" id="company" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="service">Service intéressé</label>
+                            <label for="service">Service int&eacute;ress&eacute;</label>
                             <select id="service" class="form-control">
-                                <option value="">Sélectionnez un service</option>
-                                <option value="audit">Audit de sécurité</option>
-                                <option value="protection">Protection des données</option>
-                                <option value="detection">Détection d'intrusions</option>
-                                <option value="conformite">Création ou Sécurisation de site</option>
-                                <option value="incident">Réponse aux incidents</option>
-                                <option value="formation">Formation des employés</option>
+                                <option value="">S&eacute;lectionnez un service</option>
+                                <option value="audit">Audit de s&eacute;curit&eacute;</option>
+                                <option value="protection">Protection des donn&eacute;es</option>
+                                <option value="detection">D&eacute;tection d'intrusions</option>
+                                <option value="conformite">Cr&eacute;ation ou S&eacute;curisation de site</option>
+                                <option value="incident">R&eacute;ponse aux incidents</option>
+                                <option value="formation">Formation des employ&eacute;s</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -676,17 +686,16 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>VigiCyberDefense</h3>
-                    <p>Votre partenaire de confiance en cybersécurité. Nous protégeons votre entreprise contre les cybermenaces avec des solutions sur mesure.</p>
+                    <p>Votre partenaire de confiance en cybers&eacute;curit&eacute;. Nous prot&eacute;geons votre entreprise avec des solutions sur mesure.</p>
                     <div class="social-links">
-                        <a href="#"><span>in</span></a>
-                        <a href="#"><span>f</span></a>
-                        <a href="#"><span>t</span></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -694,24 +703,25 @@
                     <ul class="footer-links">
                         <li><a href="#accueil">Accueil</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#apropos">À propos</a></li>
-                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#apropos">&Agrave; propos</a></li>
+                        <li><a href="#equipe">&Eacute;quipe</a></li>
+                        <li><a href="#temoignages">T&eacute;moignages</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Audit de Sécurité</a></li>
-                        <li><a href="#">Protection des Données</a></li>
-                        <li><a href="#">Détection d'Intrusions</a></li>
-                        <li><a href="#">Création ou Sécurisation de site</a></li>
+                        <li><a href="#">Audit de S&eacute;curit&eacute;</a></li>
+                        <li><a href="#">Protection des Donn&eacute;es</a></li>
+                        <li><a href="#">D&eacute;tection d'Intrusions</a></li>
+                        <li><a href="#">Cr&eacute;ation ou S&eacute;curisation de site</a></li>
                         <li><a href="#">Formation</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Newsletter</h3>
-                    <p>Abonnez-vous à notre newsletter pour recevoir des conseils en cybersécurité.</p>
+                    <p>Abonnez-vous &agrave; notre newsletter pour recevoir des conseils en cybers&eacute;curit&eacute;.</p>
                     <form class="newsletter-form">
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Votre email" required>
@@ -721,25 +731,20 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 VigiCyberDefense. Tous droits réservés.</p>
+                <p>&copy; 2024 VigiCyberDefense. Tous droits r&eacute;serv&eacute;s.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu mobile
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
-
-        // Fermer le menu mobile en cliquant sur un lien
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-links').classList.remove('active');
             });
         });
-
-        // Animation au défilement
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -748,11 +753,9 @@
                 header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
             }
         });
-
-        // Gestion du formulaire de contact
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Merci pour votre message! Nous vous contacterons rapidement.');
+            alert('Merci pour votre message ! Nous vous contacterons rapidement.');
             this.reset();
         });
     </script>
