@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validation Ticket – Cyber Conférence 2026</title>
+    <title>Validation Ticket – VigiCyberDefense</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0B1E36;
@@ -17,172 +13,203 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
             padding: 20px;
         }
         .card {
             background: white;
             border-radius: 20px;
-            padding: 40px 30px;
-            max-width: 500px;
+            padding: 35px 25px;
+            max-width: 550px;
             width: 100%;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             border-left: 5px solid #00FF88;
         }
-        .card .logo {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-        .card h1 {
-            color: #0B1E36;
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-        .card .sub {
-            color: #555;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
+        .logo { font-size: 48px; margin-bottom: 10px; }
+        .card h1 { color: #0B1E36; font-size: 22px; margin-bottom: 5px; }
+        .sub { color: #555; font-size: 14px; margin-bottom: 20px; }
         #result {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
             background: #f5f7fa;
-            min-height: 60px;
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
         }
-        .valid {
-            color: #0B1E36;
-            background: #d4edda !important;
-            border-left: 5px solid #28a745;
-        }
-        .invalid {
-            color: #721c24;
-            background: #f8d7da !important;
-            border-left: 5px solid #dc3545;
-        }
-        .used {
-            color: #856404;
-            background: #fff3cd !important;
-            border-left: 5px solid #ffc107;
-        }
-        .info {
-            font-size: 13px;
-            color: #777;
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-        .info span {
-            background: #0B1E36;
-            color: #00FF88;
-            padding: 2px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 25px;
-            background: #0B1E36;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #00FF88;
-            color: #0B1E36;
-        }
+        .valid { background: #d4edda !important; border-left: 5px solid #28a745; color: #155724; }
+        .invalid { background: #f8d7da !important; border-left: 5px solid #dc3545; color: #721c24; }
+        .used { background: #fff3cd !important; border-left: 5px solid #ffc107; color: #856404; }
+        .info { font-size: 13px; color: #777; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
+        .info span { background: #0B1E36; color: #00FF88; padding: 2px 10px; border-radius: 5px; font-size: 12px; font-weight: bold; }
+        .btn { display: inline-block; margin-top: 10px; padding: 8px 20px; background: #0B1E36; color: white; text-decoration: none; border-radius: 30px; font-size: 13px; border: none; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #00FF88; color: #0B1E36; }
+        .admin-area { margin-top: 25px; padding-top: 20px; border-top: 2px dashed #ccc; }
+        .admin-area details { cursor: pointer; color: #0B1E36; font-weight: bold; }
+        .admin-area details summary { padding: 8px; background: #eee; border-radius: 8px; }
+        .admin-area details div { margin-top: 15px; }
+        .admin-area input[type="password"] { padding: 10px; width: 80%; border: 1px solid #ccc; border-radius: 8px; }
+        .admin-area .btn-small { padding: 10px 20px; background: #0B1E36; color: white; border: none; border-radius: 8px; cursor: pointer; }
+        #fullList { text-align: left; background: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px; max-height: 300px; overflow-y: auto; font-size: 14px; }
+        #fullList ul { list-style: none; padding: 0; }
+        #fullList ul li { padding: 5px 0; border-bottom: 1px solid #ddd; }
+        .test-badge { background: #ffc107; color: #000; font-size: 11px; padding: 2px 8px; border-radius: 12px; margin-left: 8px; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="logo">🔐</div>
+    <div class="logo">🛡️</div>
     <h1>VigiCyberDefense</h1>
-    <p class="sub">Conférence – Luanda, 13 agosto 2026</p>
+    <p class="sub">Conférence Cybersécurité – Luanda 2026</p>
 
     <div id="result">
         🔍 Scan en cours...
     </div>
 
     <div class="info">
-        <span>JETÃO ÚNICO</span> – Cada bilhete é pessoal e intransferível..
+        <span>JETON UNIQUE</span> – Chaque ticket est personnel.
     </div>
-    <a href="#" class="btn" onclick="window.location.reload();">🔄 Tentar novamente.</a>
+    <button class="btn" onclick="window.location.reload();">🔄 Réessayer</button>
+
+    <!-- Zone Sécurisée pour l'Équipe VigiCyberDefense -->
+    <div class="admin-area">
+        <details>
+            <summary>🔐 Zone Équipe VigiCyberDefense</summary>
+            <div>
+                <p style="font-size:14px; color:#555; margin-bottom:10px;">Entrez le mot de passe d'équipe pour voir la liste complète :</p>
+                <input type="password" id="adminPass" placeholder="Mot de passe équipe" style="padding:10px; width:70%; border:1px solid #ccc; border-radius:8px;">
+                <button class="btn-small" onclick="showFullList()">Afficher la liste</button>
+                <div id="fullList"></div>
+            </div>
+        </details>
+    </div>
 </div>
 
 <script>
-    // ========================================
-    // 1. LISTE DES JETONS VALIDES (UNIQUES)
-    // ========================================
-    // Ajoute ici TOUS les codes que tu distribues sur les tickets.
-    // Chaque code doit être unique.
-    const validTokens = [
-        'TKT-001', 'TKT-002', 'TKT-003', 'TKT-004', 'TKT-005',
-        'TKT-006', 'TKT-007', 'TKT-008', 'TKT-009', 'TKT-010',
-        'TKT-011', 'TKT-012', 'TKT-013', 'TKT-014', 'TKT-015',
-        'TKT-016', 'TKT-017', 'TKT-018', 'TKT-019', 'TKT-020',
-        'TKT-021', 'TKT-022', 'TKT-023', 'TKT-024', 'TKT-025',
-        'TKT-026', 'TKT-027', 'TKT-028', 'TKT-029', 'TKT-030'
-    ];
+    // =============================================
+    // 1. LISTE DES INVITÉS (TOKENS 001 à 040)
+    // =============================================
+    // TOKENS 001 à 005 = TESTS
+    // TOKENS 006 à 040 = INVITÉS RÉELS
+    const attendees = {
+        // === TOKENS DE TEST (001 à 005) ===
+        'TKT-001': 'TEST - Ovounga Hermann',
+        'TKT-002': 'TEST - Bomassi Rhodney',
+        'TKT-003': 'TEST - Oumba Christ',
+        'TKT-004': 'TEST - Koud Paola',
+        'TKT-005': 'TEST - Opimba Juisson',
 
-    // ========================================
-    // 2. LISTE DES JETONS DÉJÀ UTILISÉS
-    // ========================================
-    // Pour l'instant vide. Après la conférence, tu pourras
-    // ajouter manuellement les codes utilisés pour simulation.
-    // Exemple : 'TKT-001', 'TKT-005'
-    const usedTokens = []; // ← ajoute ici les codes déjà scannés
+        // === INVITÉS RÉELS (006 à 040) ===
+        'TKT-006': 'João Manuel',
+        'TKT-007': 'Maria Antónia',
+        'TKT-008': 'José Pedro',
+        'TKT-009': 'Ana Luísa',
+        'TKT-010': 'Carlos Alberto',
+        'TKT-011': 'Paula Cristina',
+        'TKT-012': 'Fernando Rocha',
+        'TKT-013': 'Sofia Mateus',
+        'TKT-014': 'Rui Carlos',
+        'TKT-015': 'Teresa Maria',
+        'TKT-016': 'Nelson José',
+        'TKT-017': 'Carla Sofia',
+        'TKT-018': 'Mário Jorge',
+        'TKT-019': 'Patrícia Inês',
+        'TKT-020': 'António Silva',
+        'TKT-021': 'Helena Santos',
+        'TKT-022': 'Luís Filipe',
+        'TKT-023': 'Isabel Gomes',
+        'TKT-024': 'Pedro Miguel',
+        'TKT-025': 'Rosa Maria',
+        'TKT-026': 'David Andrade',
+        'TKT-027': 'Ana Paula',
+        'TKT-028': 'Rafael Mendes',
+        'TKT-029': 'Cristina Lopes',
+        'TKT-030': 'Manuel José',
+        'TKT-031': 'Eduarda Sousa',
+        'TKT-032': 'João Paulo',
+        'TKT-033': 'Marta Isabel',
+        'TKT-034': 'Bruno Filipe',
+        'TKT-035': 'Carina Alexandra',
+        'TKT-036': 'André Luís',
+        'TKT-037': 'Sandra Oliveira',
+        'TKT-038': 'Rui Pedro',
+        'TKT-039': 'Carla Mendes',
+        'TKT-040': 'José Fernando'
+    };
 
-    // ========================================
-    // 3. LOGIQUE DE VALIDATION
-    // ========================================
+    // Liste des tokens déjà scannés (optionnel)
+    const usedTokens = [];
+
+    // =============================================
+    // 2. MOT DE PASSE ÉQUIPE
+    // =============================================
+    const TEAM_PASSWORD = "VigiCyber2026";
+
+    // =============================================
+    // 3. LOGIQUE DE VALIDATION INDIVIDUELLE
+    // =============================================
     function validateTicket() {
         const params = new URLSearchParams(window.location.search);
         const token = params.get('token');
         const resultDiv = document.getElementById('result');
 
-        // CAS 1 : Pas de token dans l'URL
         if (!token) {
             resultDiv.innerHTML = '❌ Lien invalide : aucun jeton détecté.';
             resultDiv.className = 'invalid';
             return;
         }
 
-        // CAS 2 : Token valide ?
-        if (!validTokens.includes(token)) {
+        if (!attendees[token]) {
             resultDiv.innerHTML = '❌ Ticket invalide. Ce code n\'existe pas.';
             resultDiv.className = 'invalid';
             return;
         }
 
-        // CAS 3 : Token déjà utilisé ?
         if (usedTokens.includes(token)) {
             resultDiv.innerHTML = '⚠️ Ce ticket a déjà été utilisé. Contacter l\'organisateur.';
             resultDiv.className = 'used';
             return;
         }
 
-        // CAS 4 : TOUT EST BON
-        resultDiv.innerHTML = '✅ Bilhete válido ! Seja bem-vindo à conferênçia.';
+        // ✅ SUCCÈS
+        const fullName = attendees[token];
+        const isTest = token.match(/^TKT-00[1-5]$/);
+        const testBadge = isTest ? '<span style="background:#ffc107; color:#000; font-size:12px; padding:2px 10px; border-radius:12px; margin-left:5px;">TEST</span>' : '';
+        resultDiv.innerHTML = `✅ Bienvenue, <strong>${fullName}</strong> ${testBadge}!<br><span style="font-size:14px; font-weight:normal;">Votre ticket est valide.</span>`;
         resultDiv.className = 'valid';
-
-        // (Optionnel) Ajouter le token à la liste des utilisés
-        // usedTokens.push(token); // si tu veux qu'il soit marqué utilisé après scan
     }
 
-    // ========================================
-    // 4. EXÉCUTION
-    // ========================================
+    // =============================================
+    // 4. LOGIQUE D'AFFICHAGE DE LA LISTE COMPLÈTE
+    // =============================================
+    function showFullList() {
+        const passInput = document.getElementById('adminPass');
+        const listDiv = document.getElementById('fullList');
+
+        if (passInput.value !== TEAM_PASSWORD) {
+            listDiv.innerHTML = '<p style="color:red;">❌ Mot de passe incorrect. Accès refusé.</p>';
+            return;
+        }
+
+        let html = '<h4 style="margin-top:0;">📋 Liste complète des invités</h4>';
+        html += '<p style="font-size:12px; color:#888;">🔵 Tokens 001-005 = Tests | 🟢 006-040 = Invités</p><ul>';
+        for (const [token, name] of Object.entries(attendees)) {
+            const isTest = token.match(/^TKT-00[1-5]$/);
+            const badge = isTest ? '<span style="background:#ffc107; color:#000; font-size:10px; padding:1px 8px; border-radius:10px; margin-left:5px;">TEST</span>' : '';
+            html += `<li><strong>${token}</strong> – ${name} ${badge}</li>`;
+        }
+        html += '</ul>';
+        listDiv.innerHTML = html;
+    }
+
+    // =============================================
+    // 5. EXÉCUTION
+    // =============================================
     validateTicket();
 </script>
 
