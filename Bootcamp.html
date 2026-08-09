@@ -1,100 +1,347 @@
-📝 ARTICLE DE BLOG / PAGE BOOTCAMP – VIGICYBERDEFENSE
-🛡️ Devenez un Expert en Cybersécurité : Le Bootcamp Intensif VigiCyberDefense
-Vous voulez travailler dans la cybersécurité, mais vous ne savez pas par où commencer ?
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootcamp Cybersécurité – VigiCyberDefense</title>
+    <meta name="description" content="Formation intensive en cybersécurité (Red Team, Blue Team, GRC). Coaching personnalisé, labs TryHackMe et préparation aux certifications." />
+    
+    <!-- ====== STYLES (CSS) ====== -->
+    <style>
+        /* --- Réinitialisation et base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-Vous êtes submergé par des tutoriels YouTube, des certifications hors de prix et des forums techniques qui vous noient sous des informations contradictoires ?
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0B1E36;
+            color: #f0f4f8;
+            line-height: 1.7;
+            padding: 20px;
+        }
 
-Ne cherchez plus. Le Bootcamp VigiCyberDefense est conçu pour transformer votre motivation en compétences opérationnelles, sans les années de tâtonnement.
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #112b45;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            border-left: 6px solid #00FF88;
+        }
 
-🤔 Pourquoi ce Bootcamp est différent des cours traditionnels ?
-La cybersécurité est un domaine immense. En autodidacte, on perd facilement 6 à 12 mois à sauter d'un sujet à l'autre sans jamais devenir vraiment opérationnel.
+        /* --- Titres --- */
+        h1 {
+            font-size: 2.6rem;
+            color: #00FF88;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            border-bottom: 2px solid #00FF88;
+            padding-bottom: 15px;
+        }
 
-Notre approche est radicalement différente :
-Nous ne vous donnons pas seulement des vidéos à regarder. Nous vous offrons un coaching personnalisé sur 5 mois, avec une feuille de route claire, des exercices concrets (sur TryHackMe & HackTheBox), et un mentor dédié pour vous débloquer à chaque étape.
+        h2 {
+            font-size: 1.8rem;
+            color: #00FF88;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 4px solid #00FF88;
+            padding-left: 15px;
+        }
 
-🎯 Les 3 Voies d'Expertise (Choisissez votre arme)
-Nous avons structuré le Bootcamp autour de 3 spécialisations correspondant aux véritables métiers de la cybersécurité. À vous de choisir celle qui correspond à vos ambitions.
+        h3 {
+            font-size: 1.3rem;
+            color: #b0e0ff;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
 
-🔵 BLUE TEAM (La Défense)
-Vous voulez être celui qui protège et anticipe les attaques ?
+        /* --- Paragraphes --- */
+        p {
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+        }
 
-Métiers cibles : Analyste SOC, Administrateur Sécurité.
+        /* --- Listes --- */
+        ul, ol {
+            margin: 15px 0 25px 30px;
+        }
 
-Compétences clés : Analyse de logs, Surveillance des SIEM (Splunk/ELK), Détection et Réponse aux Incidents, Veille stratégique.
+        li {
+            margin-bottom: 8px;
+            font-size: 1.02rem;
+        }
 
-Durée : 5 mois.
+        /* --- Tableau des prix --- */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #0B1E36;
+            border-radius: 12px;
+            overflow: hidden;
+        }
 
-🔴 RED TEAM (L'Attaque)
-Vous voulez comprendre le fonctionnement des hackers pour mieux les contrer ?
+        .price-table th,
+        .price-table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #1d405f;
+        }
 
-Métiers cibles : Testeur d'intrusion (Pentesteur), Bug Bounty Hunter.
+        .price-table th {
+            background: #00FF88;
+            color: #0B1E36;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-Compétences clés : OSINT avancé, Exploitation des failles Web/Réseau/Active Directory, Rédaction de rapports professionnels.
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
 
-Durée : 5 mois.
+        .price-table td:last-child {
+            font-weight: 600;
+            color: #00FF88;
+        }
 
-⚖️ GRC (La Gouvernance)
-Vous voulez gérer la stratégie et la conformité des entreprises ?
+        /* --- Badge / mention spéciale --- */
+        .badge {
+            display: inline-block;
+            background: #00FF88;
+            color: #0B1E36;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+        }
 
-Métiers cibles : Responsable Sécurité, Consultant en Risques, Responsable Conformité.
+        /* --- Bloc CTA (appel à l'action) --- */
+        .cta-box {
+            background: #0B1E36;
+            border: 2px solid #00FF88;
+            border-radius: 15px;
+            padding: 30px 25px;
+            margin-top: 40px;
+            text-align: center;
+        }
 
-Compétences clés : Normes ISO 27001 & RGPD, Analyse de risques, Politiques de sécurité, Audit interne.
+        .cta-box p {
+            margin-bottom: 10px;
+        }
 
-Durée : 4 mois.
+        .btn {
+            display: inline-block;
+            background: #00FF88;
+            color: #0B1E36;
+            padding: 14px 40px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
 
-📅 Comment va se dérouler votre formation ?
-Le Bootcamp est hybride : il alterne entre apprentissage théorique et mise en pratique intensive pour ancrer les compétences durablement.
+        .btn:hover {
+            background: #ccffdd;
+            transform: scale(1.02);
+        }
 
-📆 Sessions Hebdomadaires (Live) : Tous les jeudis soir (ou selon le planning défini), participez à une classe virtuelle de 2h. On y décortique un thème précis (ex: "Escalade de privilèges sous Windows" ou "Les 10 failles OWASP").
+        /* --- Responsive (mobile) --- */
+        @media (max-width: 700px) {
+            .container {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .price-table th,
+            .price-table td {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
 
-💻 Labs Pratiques : Chaque semaine, recevez des "rooms" spécifiques à résoudre sur TryHackMe ou HackTheBox. Ici, c'est vous qui tapez sur le clavier.
+<body>
 
-🤝 Suivi Personnalisé : Un créneau de 30 minutes par semaine est dédié à la correction de vos rapports et à la résolution de vos blocages personnels.
+<div class="container">
 
-🏆 Projet Final (Certificatif) : En fin de parcours, réalisez une mission complète (Audit ou Analyse). Vous repartez avec un rapport professionnel que vous pouvez ajouter à votre portfolio GitHub.
+    <!-- ========================================= -->
+    <!-- TITRE PRINCIPAL                            -->
+    <!-- ========================================= -->
+    <h1>🛡️ Devenez un Expert en Cybersécurité<br>
+        <span style="font-size:1.6rem; color:#b0e0ff;">Le Bootcamp Intensif VigiCyberDefense</span>
+    </h1>
 
-🎁 Ce qui est inclus dans votre Pack
-Un planning personnalisé : Adapté à votre niveau (débutant ou intermédiaire) et à vos disponibilités.
+    <p style="font-size:1.15rem; margin-top:10px;">
+        <strong>Vous voulez travailler dans la cybersécurité, mais vous ne savez pas par où commencer ?</strong>
+    </p>
 
-Des ressources exclusives : Mes notes personnelles, des vidéos privées et des "Cheat Sheets" pour gagner des heures de recherche.
+    <p>
+        Vous êtes submergé par des tutoriels YouTube, des certifications hors de prix et des forums techniques qui vous noient sous des informations contradictoires ?<br>
+        Ne cherchez plus. Le <strong>Bootcamp VigiCyberDefense</strong> est conçu pour transformer votre motivation en compétences opérationnelles, sans les années de tâtonnement.
+    </p>
 
-Un Mentor Humain : Un vrai contact humain (moi-même) pour vous guider, contrairement aux cours pré-enregistrés.
+    <!-- ========================================= -->
+    <!-- SECTION : POURQUOI CE BOOTCAMP ?          -->
+    <!-- ========================================= -->
+    <h2>🤔 Pourquoi ce Bootcamp est différent des cours traditionnels ?</h2>
 
-Préparation aux Certifications : Nous préparons les examens qui feront la différence sur votre CV (Security+, eJPT, PNPT).
+    <p>
+        La cybersécurité est un domaine immense. En autodidacte, on perd facilement 6 à 12 mois à sauter d'un sujet à l'autre sans jamais devenir vraiment opérationnel.
+    </p>
 
-💰 Investissement (Offre de Lancement)
-Pour les 5 premiers inscrits, nous offrons 3 mois d'accès TryHackMe Premium pour que vous puissiez commencer immédiatement.
+    <p>
+        Notre approche est radicalement différente :<br>
+        Nous ne vous donnons pas seulement des vidéos à regarder. Nous vous offrons un <strong>coaching personnalisé</strong> sur 5 mois, avec une feuille de route claire, des exercices concrets (sur TryHackMe &amp; HackTheBox), et un mentor dédié pour vous débloquer à chaque étape.
+    </p>
 
-Votre Profil	Formation Complète (5 Mois)	Coaching à la Carte (10h)
-👤 Particulier	550 000 Kz (Paiement en 3x possible)	200 000 Kz
-🏢 Entreprise (Prise en charge par l'employeur)	850 000 Kz (Facture professionnelle)	300 000 Kz
-🚀 Comment rejoindre la prochaine promotion ?
-Les places sont limitées pour garantir un accompagnement de qualité. Ne laissez pas cette opportunité vous échapper.
+    <!-- ========================================= -->
+    <!-- SECTION : LES 3 VOIES D'EXPERTISE         -->
+    <!-- ========================================= -->
+    <h2>🎯 Les 3 Voies d'Expertise</h2>
+    <p><em>Choisissez votre spécialité :</em></p>
 
-Le processus d'inscription est simple :
+    <!-- BLUE TEAM -->
+    <h3>🔵 BLUE TEAM – La Défense</h3>
+    <p><em>Vous voulez être celui qui protège et anticipe les attaques ?</em></p>
+    <ul>
+        <li><strong>Métiers cibles</strong> : Analyste SOC, Administrateur Sécurité.</li>
+        <li><strong>Compétences clés</strong> : Analyse de logs, Surveillance des SIEM (Splunk/ELK), Détection et Réponse aux Incidents, Veille stratégique.</li>
+        <li><strong>Durée</strong> : 5 mois.</li>
+    </ul>
 
-Contactez-moi via WhatsApp en m'envoyant votre CV (même simple) et votre objectif (Blue, Red ou GRC).
+    <!-- RED TEAM -->
+    <h3>🔴 RED TEAM – L'Attaque</h3>
+    <p><em>Vous voulez comprendre le fonctionnement des hackers pour mieux les contrer ?</em></p>
+    <ul>
+        <li><strong>Métiers cibles</strong> : Testeur d'intrusion (Pentesteur), Bug Bounty Hunter.</li>
+        <li><strong>Compétences clés</strong> : OSINT avancé, Exploitation des failles Web/Réseau/Active Directory, Rédaction de rapports professionnels.</li>
+        <li><strong>Durée</strong> : 5 mois.</li>
+    </ul>
 
-Nous planifions un entretien de motivation de 15 minutes (gratuit) pour valider votre niveau et bâtir votre planning personnalisé.
+    <!-- GRC -->
+    <h3>⚖️ GRC – La Gouvernance</h3>
+    <p><em>Vous voulez gérer la stratégie et la conformité des entreprises ?</em></p>
+    <ul>
+        <li><strong>Métiers cibles</strong> : Responsable Sécurité, Consultant en Risques, Responsable Conformité.</li>
+        <li><strong>Compétences clés</strong> : Normes ISO 27001 &amp; RGPD, Analyse de risques, Politiques de sécurité, Audit interne.</li>
+        <li><strong>Durée</strong> : 4 mois.</li>
+    </ul>
 
-Je valide votre inscription, et nous commençons l'aventure.
+    <!-- ========================================= -->
+    <!-- SECTION : DÉROULEMENT                     -->
+    <!-- ========================================= -->
+    <h2>📅 Comment va se dérouler votre formation ?</h2>
 
-📬 Vous avez des questions ? Parlons-en.
-📱 WhatsApp : [Votre numéro]
+    <p>Le Bootcamp est hybride : il alterne entre <strong>apprentissage théorique</strong> et <strong>mise en pratique intensive</strong> pour ancrer les compétences durablement.</p>
 
-📧 Email : [Votre email]
+    <ul>
+        <li><strong>📆 Sessions Hebdomadaires (Live)</strong> : Tous les jeudis soir (ou selon le planning défini), participez à une classe virtuelle de 2h. On y décortique un thème précis (ex: "Escalade de privilèges sous Windows" ou "Les 10 failles OWASP").</li>
+        <li><strong>💻 Labs Pratiques</strong> : Chaque semaine, recevez des "rooms" spécifiques à résoudre sur TryHackMe ou HackTheBox. Ici, c'est vous qui tapez sur le clavier.</li>
+        <li><strong>🤝 Suivi Personnalisé</strong> : Un créneau de 30 minutes par semaine est dédié à la correction de vos rapports et à la résolution de vos blocages personnels.</li>
+        <li><strong>🏆 Projet Final (Certificatif)</strong> : En fin de parcours, réalisez une mission complète (Audit ou Analyse). Vous repartez avec un rapport professionnel que vous pouvez ajouter à votre portfolio GitHub.</li>
+    </ul>
 
-💻 Portfolio : github.com/SahlOguen/portofolio
+    <!-- ========================================= -->
+    <!-- SECTION : INCLUSIONS                      -->
+    <!-- ========================================= -->
+    <h2>🎁 Ce qui est inclus dans votre Pack</h2>
 
-🔐 Le meilleur antivirus, c'est votre connaissance.
-Rejoignez VigiCyberDefense et devenez le spécialiste que le marché recherche.
+    <ul>
+        <li><strong>Un planning personnalisé</strong> : Adapté à votre niveau (débutant ou intermédiaire) et à vos disponibilités.</li>
+        <li><strong>Des ressources exclusives</strong> : Mes notes personnelles, des vidéos privées et des "Cheat Sheets" pour gagner des heures de recherche.</li>
+        <li><strong>Un Mentor Humain</strong> : Un vrai contact humain (moi-même) pour vous guider, contrairement aux cours pré-enregistrés.</li>
+        <li><strong>Préparation aux Certifications</strong> : Nous préparons les examens qui feront la différence sur votre CV (Security+, eJPT, PNPT).</li>
+    </ul>
 
-📌 BONUS : META-DONNÉES POUR LE BLOG
-Si tu utilises un CMS (WordPress/Wix), voici les infos à remplir pour le référencement :
+    <!-- ========================================= -->
+    <!-- SECTION : TARIFS (TABLEAU)               -->
+    <!-- ========================================= -->
+    <h2>💰 Investissement (Offre de Lancement)</h2>
 
-Titre SEO : Bootcamp Cybersécurité Luanda – Devenez Expert en 5 Mois | VigiCyberDefense
+    <p><span class="badge">Offre limitée</span> Les 5 premiers inscrits bénéficient de <strong>3 mois d'accès TryHackMe Premium</strong> offerts !</p>
 
-Description : Formation intensive en cybersécurité (Red Team, Blue Team, GRC). Coaching personnalisé, labs TryHackMe et préparation aux certifications. Inscrivez-vous !
+    <table class="price-table">
+        <thead>
+            <tr>
+                <th>Votre Profil</th>
+                <th>Formation Complète (5 Mois)</th>
+                <th>Coaching à la Carte (10h)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>👤 Particulier</strong></td>
+                <td>550 000 Kz <span style="display:block; font-weight:normal; color:#aaa; font-size:0.85rem;">(Paiement en 3x possible)</span></td>
+                <td>200 000 Kz</td>
+            </tr>
+            <tr>
+                <td><strong>🏢 Entreprise</strong> <span style="display:block; font-weight:normal; color:#aaa; font-size:0.8rem;">(Prise en charge par l'employeur)</span></td>
+                <td>850 000 Kz <span style="display:block; font-weight:normal; color:#aaa; font-size:0.85rem;">(Facture professionnelle)</span></td>
+                <td>300 000 Kz</td>
+            </tr>
+        </tbody>
+    </table>
 
-Mots-clés : formation cybersécurité Luanda, bootcamp hacking Angola, formation pentest, analyste SOC, cyber Angola, VigiCyberDefense.
+    <!-- ========================================= -->
+    <!-- SECTION : INSCRIPTION (CTA)               -->
+    <!-- ========================================= -->
+    <h2>🚀 Comment rejoindre la prochaine promotion ?</h2>
+
+    <p>
+        Les places sont limitées pour garantir un accompagnement de qualité. Ne laissez pas cette opportunité vous échapper.
+    </p>
+
+    <p>
+        <strong>Le processus d'inscription est simple :</strong>
+    </p>
+    <ol>
+        <li><strong>Contactez-moi</strong> via WhatsApp en m'envoyant votre <strong>CV</strong> (même simple) et votre <strong>objectif</strong> (Blue, Red ou GRC).</li>
+        <li>Nous planifions un <strong>entretien de motivation de 15 minutes</strong> (gratuit) pour valider votre niveau et bâtir votre planning personnalisé.</li>
+        <li>Je valide votre inscription, et nous commençons l'aventure.</li>
+    </ol>
+
+    <!-- BLOC CTA -->
+    <div class="cta-box">
+        <p style="font-size:1.2rem; font-weight:700;">📬 Vous avez des questions ? Parlons-en.</p>
+        <p>
+            📱 <strong>WhatsApp</strong> : <a href="https://wa.me/244922400" style="color:#00FF88; text-decoration:none;">+244 922 400</a><br>
+            📧 <strong>Email</strong> : <a href="mailto:cybmatconsul@gmail.com" style="color:#00FF88; text-decoration:none;">cybmatconsul@gmail.com</a><br>
+            💻 <strong>Portfolio</strong> : <a href="https://github.com/SahlOguen/portofolio" style="color:#00FF88; text-decoration:none;" target="_blank">github.com/SahlOguen/portofolio</a>
+        </p>
+        <a href="https://wa.me/244922400" class="btn">📲 Envoyer un message</a>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- CONCLUSION                                -->
+    <!-- ========================================= -->
+    <p style="text-align:center; margin-top:45px; font-size:1.2rem; border-top:1px solid #1d405f; padding-top:25px;">
+        🔐 <strong>Le meilleur antivirus, c'est votre connaissance.</strong><br>
+        <span style="color:#b0e0ff;">Rejoignez VigiCyberDefense et devenez le spécialiste que le marché recherche.</span>
+    </p>
+
+</div>
+
+</body>
+</html>
 
