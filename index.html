@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VigiCyberDefense | Conseil en Cybers&eacute;curit&eacute;</title>
+    <title>VigiCyberDefense | Conseil en Cybersécurité</title>
     <!-- Font Awesome pour les icônes professionnelles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <meta name="description" content="VigiCyberDefense - Votre partenaire en s&eacute;curit&eacute; num&eacute;rique.">
+    <meta name="description" content="VigiCyberDefense - Votre partenaire en sécurité numérique.">
     <style>
         :root {
             --primary: #1a365d;
@@ -77,6 +77,14 @@
             background-color: var(--accent);
             color: white;
         }
+        .btn-success {
+            background-color: #00a859;
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: #008048;
+            color: white;
+        }
         section {
             padding: 80px 0;
         }
@@ -99,6 +107,11 @@
             width: 80px;
             height: 3px;
             background-color: var(--accent);
+        }
+        .section-title p {
+            color: #4a5568;
+            max-width: 700px;
+            margin: 10px auto 0;
         }
         header {
             background-color: white;
@@ -133,16 +146,23 @@
         .nav-links {
             display: flex;
             list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 25px;
         }
         .nav-links a {
             color: var(--secondary);
             font-weight: 500;
+            transition: var(--transition);
         }
         .nav-links a:hover {
             color: var(--accent);
+        }
+        .nav-links a.active-link {
+            color: var(--accent);
+            font-weight: 700;
         }
         .mobile-menu {
             display: none;
@@ -171,7 +191,9 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
+        /* ===== SERVICES GRID ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -197,6 +219,92 @@
         }
         .service-card h3 {
             margin-bottom: 15px;
+        }
+        /* ===== BOOTCAMP ===== */
+        .bootcamp-highlight {
+            background: #e6f7ff;
+            border-left: 6px solid var(--accent);
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .bootcamp-highlight p {
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .expertise-card {
+            background: white;
+            padding: 22px 25px 28px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--accent);
+            text-align: left;
+        }
+        .expertise-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        .expertise-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        .expertise-card .sub {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .expertise-card ul {
+            margin-left: 20px;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+        .expertise-card ul li {
+            margin-bottom: 4px;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .price-table th,
+        .price-table td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .price-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+        }
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+        .price-table .highlight {
+            background: #f0f7ff;
+        }
+        .badge {
+            display: inline-block;
+            background: #00a859;
+            color: white;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
         }
         .about {
             background-color: var(--primary);
@@ -409,6 +517,7 @@
             color: #a0aec0;
             font-size: 0.9rem;
         }
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .about-content,
             .contact-content {
@@ -416,6 +525,9 @@
             }
             .hero h1 {
                 font-size: 2.8rem;
+            }
+            .expertise-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
         @media (max-width: 768px) {
@@ -459,6 +571,14 @@
             .team-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            .price-table th,
+            .price-table td {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
         }
         @media (max-width: 480px) {
             .team-grid {
@@ -471,136 +591,260 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">
+                <a href="#accueil" class="logo">
                     <img src="VigiCyberDefense_logo.png" alt="VigiCyberDefense">
                     <span>Vigi<span>Cyber</span>Defense</span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#apropos">&Agrave; propos</a></li>
-                    <li><a href="#equipe">&Eacute;quipe</a></li>
-                    <li><a href="#temoignages">T&eacute;moignages</a></li>
+                    <li><a href="#bootcamp">Bootcamp</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#equipe">Équipe</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="mobile-menu">?</div>
+                <div class="mobile-menu">☰</div>
             </nav>
         </div>
     </header>
 
+    <!-- ========================================== -->
+    <!-- SECTION : ACCUEIL (HERO)                   -->
+    <!-- ========================================== -->
     <section class="hero" id="accueil">
         <div class="container">
-            <h1>Prot&eacute;gez votre petite et moyenne entreprise contre les cybermenaces</h1>
-            <p>VigiCyberDefense est votre partenaire de confiance en cybers&eacute;curit&eacute;. Nous fournissons des solutions sur mesure pour prot&eacute;ger les entreprises, startups et activit&eacute;s du secteur informel.</p>
+            <h1>Protégez votre petite et moyenne entreprise contre les cybermenaces</h1>
+            <p>VigiCyberDefense est votre partenaire de confiance en cybersécurité. Nous fournissons des solutions sur mesure pour protéger les entreprises, startups et activités du secteur informel.</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn">Demander un audit gratuit</a>
-                <a href="#services" class="btn btn-outline">D&eacute;couvrir nos services</a>
+                <a href="#services" class="btn btn-outline">Découvrir nos services</a>
             </div>
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- SECTION : SERVICES                          -->
+    <!-- ========================================== -->
     <section id="services">
         <div class="container">
             <div class="section-title">
                 <h2>Nos Services</h2>
-                <p>Des solutions compl&egrave;tes pour s&eacute;curiser votre infrastructure num&eacute;rique</p>
+                <p>Des solutions complètes pour sécuriser votre infrastructure numérique</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-lock"></i></div>
-                    <h3>Audit de S&eacute;curit&eacute;</h3>
-                    <p>&Eacute;valuation compl&egrave;te pour identifier les vuln&eacute;rabilit&eacute;s et recommander des mesures correctives.</p>
+                    <h3>Audit de Sécurité</h3>
+                    <p>Évaluation complète pour identifier les vulnérabilités et recommander des mesures correctives.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Protection des Donn&eacute;es</h3>
-                    <p>Chiffrement et sauvegarde pour prot&eacute;ger vos donn&eacute;es sensibles contre les fuites et les pertes.</p>
+                    <h3>Protection des Données</h3>
+                    <p>Chiffrement et sauvegarde pour protéger vos données sensibles contre les fuites et les pertes.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-search"></i></div>
-                    <h3>D&eacute;tection d'Intrusions</h3>
-                    <p>Surveillance avanc&eacute;e pour d&eacute;tecter et r&eacute;pondre aux activit&eacute;s suspectes sur votre r&eacute;seau.</p>
+                    <h3>Détection d'Intrusions</h3>
+                    <p>Surveillance avancée pour détecter et répondre aux activités suspectes sur votre réseau.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-file-code"></i></div>
-                    <h3>Cr&eacute;ation &amp; S&eacute;curisation de site Web</h3>
-                    <p>Accompagnement pour cr&eacute;er et s&eacute;curiser un site vitrine conforme aux r&eacute;glementations.</p>
+                    <h3>Création &amp; Sécurisation de site Web</h3>
+                    <p>Accompagnement pour créer et sécuriser un site vitrine conforme aux réglementations.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                    <h3>R&eacute;ponse aux Incidents</h3>
-                    <p>Intervention rapide en cas de cyberattaque pour limiter les d&eacute;g&acirc;ts et restaurer vos syst&egrave;mes.</p>
+                    <h3>Réponse aux Incidents</h3>
+                    <p>Intervention rapide en cas de cyberattaque pour limiter les dégâts et restaurer vos systèmes.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Formation des Employ&eacute;s</h3>
-                    <p>Sessions de sensibilisation aux bonnes pratiques de s&eacute;curit&eacute; informatique.</p>
+                    <h3>Formation des Employés</h3>
+                    <p>Sessions de sensibilisation aux bonnes pratiques de sécurité informatique.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- SECTION : BOOTCAMP                         -->
+    <!-- ========================================== -->
+    <section id="bootcamp" style="background-color: #f0f7ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>🎓 Bootcamp – Devenez un Expert Cyber</h2>
+                <p>Une formation immersive de 5 mois pour faire de vous un professionnel opérationnel en cybersécurité</p>
+            </div>
+
+            <div class="bootcamp-highlight">
+                <p><strong>🚀 Offre de lancement :</strong> Les 5 premiers inscrits bénéficient de <strong>3 mois d'accès TryHackMe Premium</strong> offerts !</p>
+            </div>
+
+            <h3 style="color: var(--primary); margin-bottom: 15px;">Les 5 Voies d'Expertise</h3>
+            <div class="expertise-grid">
+                <!-- Blue Team -->
+                <div class="expertise-card">
+                    <h3>🔵 BLUE TEAM</h3>
+                    <div class="sub">Défense &amp; SOC</div>
+                    <ul>
+                        <li>Analyste SOC, Admin Sécurité</li>
+                        <li>Logs, SIEM, Réponse à incident</li>
+                        <li><strong>Durée :</strong> 5 mois</li>
+                    </ul>
+                </div>
+                <!-- Red Team -->
+                <div class="expertise-card">
+                    <h3>🔴 RED TEAM</h3>
+                    <div class="sub">Attaque &amp; Pentest</div>
+                    <ul>
+                        <li>Pentesteur, Bug Bounty</li>
+                        <li>OSINT, Exploitation Web/Réseau/AD</li>
+                        <li><strong>Durée :</strong> 5 mois</li>
+                    </ul>
+                </div>
+                <!-- GRC -->
+                <div class="expertise-card">
+                    <h3>⚖️ GRC</h3>
+                    <div class="sub">Gouvernance &amp; Conformité</div>
+                    <ul>
+                        <li>Responsable Sécurité, Risques</li>
+                        <li>ISO 27001, RGPD, Audit</li>
+                        <li><strong>Durée :</strong> 4 mois</li>
+                    </ul>
+                </div>
+                <!-- Forensique -->
+                <div class="expertise-card">
+                    <h3>🔍 FORENSIQUE</h3>
+                    <div class="sub">Investigation Numérique</div>
+                    <ul>
+                        <li>Expert DFIR, Analyse mémoire</li>
+                        <li>Collecte de preuves, Journalisation</li>
+                        <li><strong>Durée :</strong> 4 mois</li>
+                    </ul>
+                </div>
+                <!-- OSINT -->
+                <div class="expertise-card" style="grid-column: span 2; max-width: 50%; justify-self: center;">
+                    <h3>🌐 OSINT</h3>
+                    <div class="sub">Renseignement Open Source</div>
+                    <ul>
+                        <li>Analyste OSINT, Cyber Veilleur</li>
+                        <li>Recherche avancée, Fuites de données</li>
+                        <li><strong>Durée :</strong> 3 mois</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary); margin-top: 35px;">📅 Comment ça se passe ?</h3>
+            <ul style="margin: 10px 0 25px 30px; font-size: 1.05rem;">
+                <li><strong>Sessions live (2h/semaine) :</strong> Cours en visio avec un mentor.</li>
+                <li><strong>Labs pratiques :</strong> Exercices sur TryHackMe &amp; HackTheBox.</li>
+                <li><strong>Suivi personnalisé :</strong> 30 min de correction individuelle par semaine.</li>
+                <li><strong>Projet final :</strong> Une mission complète à valoriser sur votre CV.</li>
+            </ul>
+
+            <h3 style="color: var(--primary); margin-top: 30px;">💰 Investissement</h3>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Profil</th>
+                        <th>Formation complète (5 mois)</th>
+                        <th>Coaching à la carte (10h)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>👤 Particulier</strong></td>
+                        <td>550 000 Kz <span style="display:block; font-weight:normal; color:#718096; font-size:0.85rem;">(paiement en 3x possible)</span></td>
+                        <td>200 000 Kz</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td><strong>🏢 Entreprise</strong></td>
+                        <td>850 000 Kz <span style="display:block; font-weight:normal; color:#718096; font-size:0.85rem;">(facture professionnelle)</span></td>
+                        <td>300 000 Kz</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="text-align:center; margin-top: 25px;">
+                <a href="#contact" class="btn btn-success" style="font-size:1.1rem; padding: 14px 40px;">
+                    📲 S'inscrire au Bootcamp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION : À PROPOS                          -->
+    <!-- ========================================== -->
     <section class="about" id="apropos">
         <div class="container">
             <div class="section-title">
-                <h2>&Agrave; Propos de Nous</h2>
+                <h2>À Propos de Nous</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Notre Expertise au Service de Votre S&eacute;curit&eacute;</h2>
-                    <p>Fond&eacute; en 2024, VigiCyberDefense rassemble une &eacute;quipe de trois experts en cybers&eacute;curit&eacute; passionn&eacute;s par la protection des entreprises contre les menaces num&eacute;riques.</p>
-                    <p>Notre approche combine une expertise technique pointue avec une compr&eacute;hension approfondie des enjeux business. Nous travaillons avec des TPE, PME, startups et particuliers.</p>
-                    <p>Notre mission : vous permettre de concentrer vos efforts sur votre c&oelig;ur de m&eacute;tier en vous lib&eacute;rant des pr&eacute;occupations li&eacute;es &agrave; la s&eacute;curit&eacute; informatique.</p>
+                    <h2>Notre Expertise au Service de Votre Sécurité</h2>
+                    <p>Fondé en 2024, VigiCyberDefense rassemble une équipe de trois experts en cybersécurité passionnés par la protection des entreprises contre les menaces numériques.</p>
+                    <p>Notre approche combine une expertise technique pointue avec une compréhension approfondie des enjeux business. Nous travaillons avec des TPE, PME, startups et particuliers.</p>
+                    <p>Notre mission : vous permettre de concentrer vos efforts sur votre cœur de métier en vous libérant des préoccupations liées à la sécurité informatique.</p>
                     <a href="#contact" class="btn">Prendre contact</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1563013546-91b5d36402f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="&Eacute;quipe">
+                    <img src="https://images.unsplash.com/photo-1563013546-91b5d36402f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Équipe">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- SECTION : ÉQUIPE                           -->
+    <!-- ========================================== -->
     <section class="team" id="equipe">
         <div class="container">
             <div class="section-title">
-                <h2>Notre &Eacute;quipe de Direction</h2>
-                <p>Trois experts passionn&eacute;s pour prot&eacute;ger votre entreprise</p>
+                <h2>Notre Équipe de Direction</h2>
+                <p>Trois experts passionnés pour protéger votre entreprise</p>
             </div>
             <div class="team-grid">
                 <div class="team-card">
-                    <img src="herminio.png" alt="HerminioR M.">
-                    <h3>M. Herminio Matsumbo </h3>
+                    <img src="herminio.png" alt="Herminio R. M.">
+                    <h3>M. Herminio Matsumbo</h3>
                     <div class="title">CEO &amp; Fondateur</div>
-                    <p>Expert en cybers&eacute;curit&eacute; avec plus de 5 ans d'exp&eacute;rience dans les infrastructures critiques.</p>
+                    <p>Expert en cybersécurité avec plus de 5 ans d'expérience dans les infrastructures critiques.</p>
                 </div>
                 <div class="team-card">
-                    <img src="Prisila.png" alt="Prisila.">
-                    <h3>Mme Pricsila Ndondo </h3>
+                    <img src="Prisila.png" alt="Prisila">
+                    <h3>Mme Priscila Ndondo</h3>
                     <div class="title">Assistante Technique (CTO)</div>
-                    <p>Sp&eacute;cialiste en s&eacute;curit&eacute; des r&eacute;seaux  Supervise toutes les missions techniques.</p>
+                    <p>Spécialiste en sécurité des réseaux. Supervise toutes les missions techniques.</p>
                 </div>
                 <div class="team-card">
-                    <img src="Gustavo2.png" alt="Gustavo.">
-                    <h3>M. Gustavo Liumba </h3>
-                    <div class="title">Responsable des Op&eacute;rations</div>
-                    <p>G&egrave;re la relation client et la coordination des &eacute;quipes sur le terrain pour une r&eacute;activit&eacute; optimale.</p>
+                    <img src="Gustavo2.png" alt="Gustavo">
+                    <h3>M. Gustavo Liumba</h3>
+                    <div class="title">Responsable des Opérations</div>
+                    <p>Gère la relation client et la coordination des équipes sur le terrain pour une réactivité optimale.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- SECTION : TÉMOIGNAGES                       -->
+    <!-- ========================================== -->
     <section id="temoignages" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>T&eacute;moignages Clients</h2>
-                <p>D&eacute;couvrez ce que nos clients disent de notre collaboration</p>
+                <h2>Témoignages Clients</h2>
+                <p>Découvrez ce que nos clients disent de notre collaboration</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial">
-                    <p>"VigiCyberDefense a r&eacute;alis&eacute; un audit complet de notre syst&egrave;me d'information et identifi&eacute; des vuln&eacute;rabilit&eacute;s critiques que nous avions n&eacute;glig&eacute;es. Leurs recommandations nous ont permis de renforcer consid&eacute;rablement notre s&eacute;curit&eacute;."</p>
+                    <p>"VigiCyberDefense a réalisé un audit complet de notre système d'information et identifié des vulnérabilités critiques que nous avions négligées. Leurs recommandations nous ont permis de renforcer considérablement notre sécurité."</p>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client">
                         </div>
                         <div>
                             <h4>Henryna Bopouanda</h4>
@@ -612,27 +856,26 @@
         </div>
     </section>
 
-
-        <!-- ===== BLOG / ACTUALITÉS ===== -->
+    <!-- ========================================== -->
+    <!-- SECTION : BLOG                              -->
+    <!-- ========================================== -->
     <section class="blog" id="blog" style="background-color: #ffffff;">
         <div class="container">
             <div class="section-title">
                 <h2>Derniers Articles &amp; Conseils</h2>
-                <p>Restez inform&eacute; des derni&egrave;res menaces et bonnes pratiques en cybers&eacute;curit&eacute;</p>
+                <p>Restez informé des dernières menaces et bonnes pratiques en cybersécurité</p>
             </div>
-            <div class="services-grid"> <!-- Je réutilise la grille des services pour garder l'harmonie -->
-                
+            <div class="services-grid">
                 <!-- Article 1 -->
-<div class="service-card" style="text-align: left; padding: 25px;">
-    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
-        <span style="font-size: 2rem; color: var(--accent);"><i class="fas fa-shield-virus"></i></span>
-        <span style="font-size: 0.8rem; background: var(--light); padding: 4px 12px; border-radius: 20px; color: var(--secondary);">24 Juin 2024</span>
-    </div>
-    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Comment repérer un e-mail de phishing ?</h3>
-    <p style="color: #4a5568; font-size: 0.95rem;">Les attaques par hameçonnage sont en hausse. Découvrez les 5 signes qui ne trompent pas pour protéger vos collaborateurs.</p>
-    <a href="https://www.youtube.com/watch?v=qGTKKoFPMW0" target="_blank" style="display: inline-block; margin-top: 15px; font-weight: 600; color: var(--accent);">Lire la suite <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
-</div>
-
+                <div class="service-card" style="text-align: left; padding: 25px;">
+                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+                        <span style="font-size: 2rem; color: var(--accent);"><i class="fas fa-shield-virus"></i></span>
+                        <span style="font-size: 0.8rem; background: var(--light); padding: 4px 12px; border-radius: 20px; color: var(--secondary);">24 Juin 2024</span>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Comment repérer un e-mail de phishing ?</h3>
+                    <p style="color: #4a5568; font-size: 0.95rem;">Les attaques par hameçonnage sont en hausse. Découvrez les 5 signes qui ne trompent pas pour protéger vos collaborateurs.</p>
+                    <a href="https://www.youtube.com/watch?v=qGTKKoFPMW0" target="_blank" style="display: inline-block; margin-top: 15px; font-weight: 600; color: var(--accent);">Lire la suite <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+                </div>
                 <!-- Article 2 -->
                 <div class="service-card" style="text-align: left; padding: 25px;">
                     <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
@@ -643,7 +886,6 @@
                     <p style="color: #4a5568; font-size: 0.95rem;">Vos données sont-elles vraiment privées ? Le chiffrement est la clé pour garantir la confidentialité de vos échanges professionnels.</p>
                     <a href="#" style="display: inline-block; margin-top: 15px; font-weight: 600; color: var(--accent);">Lire la suite <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
                 </div>
-
                 <!-- Article 3 -->
                 <div class="service-card" style="text-align: left; padding: 25px;">
                     <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
@@ -654,16 +896,18 @@
                     <p style="color: #4a5568; font-size: 0.95rem;">Un employé bien formé est un rempart contre les cyberattaques. Nos astuces pour une sensibilisation efficace.</p>
                     <a href="#" style="display: inline-block; margin-top: 15px; font-weight: 600; color: var(--accent);">Lire la suite <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- SECTION : CONTACT                          -->
+    <!-- ========================================== -->
     <section id="contact">
         <div class="container">
             <div class="section-title">
                 <h2>Contactez-Nous</h2>
-                <p>Discutons de vos besoins en cybers&eacute;curit&eacute;</p>
+                <p>Discutons de vos besoins en cybersécurité</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -677,7 +921,7 @@
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
-                            <h3>T&eacute;l&eacute;phone</h3>
+                            <h3>Téléphone</h3>
                             <p>+244 957 157 011</p>
                         </div>
                     </div>
@@ -711,15 +955,16 @@
                             <input type="text" id="company" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="service">Service int&eacute;ress&eacute;</label>
+                            <label for="service">Service intéressé</label>
                             <select id="service" class="form-control">
-                                <option value="">S&eacute;lectionnez un service</option>
-                                <option value="audit">Audit de s&eacute;curit&eacute;</option>
-                                <option value="protection">Protection des donn&eacute;es</option>
-                                <option value="detection">D&eacute;tection d'intrusions</option>
-                                <option value="conformite">Cr&eacute;ation ou S&eacute;curisation de site</option>
-                                <option value="incident">R&eacute;ponse aux incidents</option>
-                                <option value="formation">Formation des employ&eacute;s</option>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="audit">Audit de sécurité</option>
+                                <option value="protection">Protection des données</option>
+                                <option value="detection">Détection d'intrusions</option>
+                                <option value="conformite">Création ou Sécurisation de site</option>
+                                <option value="incident">Réponse aux incidents</option>
+                                <option value="formation">Formation des employés</option>
+                                <option value="bootcamp">Bootcamp Cybersécurité</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -733,12 +978,15 @@
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>VigiCyberDefense</h3>
-                    <p>Votre partenaire de confiance en cybers&eacute;curit&eacute;. Nous prot&eacute;geons votre entreprise avec des solutions sur mesure.</p>
+                    <p>Votre partenaire de confiance en cybersécurité. Nous protégeons votre entreprise avec des solutions sur mesure.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -750,25 +998,27 @@
                     <ul class="footer-links">
                         <li><a href="#accueil">Accueil</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#apropos">&Agrave; propos</a></li>
-                        <li><a href="#equipe">&Eacute;quipe</a></li>
-                        <li><a href="#temoignages">T&eacute;moignages</a></li>
+                        <li><a href="#bootcamp">Bootcamp</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#equipe">Équipe</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#blog">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Audit de S&eacute;curit&eacute;</a></li>
-                        <li><a href="#">Protection des Donn&eacute;es</a></li>
-                        <li><a href="#">D&eacute;tection d'Intrusions</a></li>
-                        <li><a href="#">Cr&eacute;ation ou S&eacute;curisation de site</a></li>
-                        <li><a href="#">Formation</a></li>
+                        <li><a href="#services">Audit de Sécurité</a></li>
+                        <li><a href="#services">Protection des Données</a></li>
+                        <li><a href="#services">Détection d'Intrusions</a></li>
+                        <li><a href="#services">Création ou Sécurisation de site</a></li>
+                        <li><a href="#services">Formation</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Newsletter</h3>
-                    <p>Abonnez-vous &agrave; notre newsletter pour recevoir des conseils en cybers&eacute;curit&eacute;.</p>
+                    <p>Abonnez-vous à notre newsletter pour recevoir des conseils en cybersécurité.</p>
                     <form class="newsletter-form">
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Votre email" required>
@@ -778,20 +1028,28 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 VigiCyberDefense. Tous droits r&eacute;serv&eacute;s.</p>
+                <p>&copy; 2024 VigiCyberDefense. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
+    <!-- ========================================== -->
+    <!-- SCRIPTS                                    -->
+    <!-- ========================================== -->
     <script>
+        // Menu mobile
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
+
+        // Fermer le menu après un clic sur un lien
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-links').classList.remove('active');
             });
         });
+
+        // Ombre du header au scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -800,6 +1058,8 @@
                 header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
             }
         });
+
+        // Soumission du formulaire de contact
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Merci pour votre message ! Nous vous contacterons rapidement.');
