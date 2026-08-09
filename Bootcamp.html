@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootcamp Cybersécurité – VigiCyberDefense</title>
-    <meta name="description" content="Formation intensive en cybersécurité (Red Team, Blue Team, GRC). Coaching personnalisé, labs TryHackMe et préparation aux certifications." />
+    <meta name="description" content="Formation intensive en cybersécurité (Red Team, Blue Team, GRC, Forensique, OSINT). Coaching personnalisé, labs TryHackMe et préparation aux certifications." />
     
     <!-- ====== STYLES (CSS) ====== -->
     <style>
@@ -24,13 +24,40 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: #112b45;
             padding: 50px 40px;
             border-radius: 20px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.7);
             border-left: 6px solid #00FF88;
+        }
+
+        /* --- Menu de navigation --- */
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1d405f;
+        }
+        .nav-menu a {
+            color: #b0e0ff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 30px;
+            transition: 0.3s;
+            background: #0B1E36;
+        }
+        .nav-menu a:hover {
+            background: #00FF88;
+            color: #0B1E36;
+        }
+        .nav-menu a.active {
+            background: #00FF88;
+            color: #0B1E36;
         }
 
         /* --- Titres --- */
@@ -75,6 +102,33 @@
             font-size: 1.02rem;
         }
 
+        /* --- Grille des voies d'expertise --- */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .expertise-card {
+            background: #0B1E36;
+            padding: 20px 20px 25px;
+            border-radius: 15px;
+            border-left: 4px solid #00FF88;
+            transition: 0.3s;
+        }
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,255,136,0.15);
+        }
+        .expertise-card h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .expertise-card ul {
+            margin: 10px 0 0 20px;
+        }
+
         /* --- Tableau des prix --- */
         .price-table {
             width: 100%;
@@ -109,7 +163,7 @@
             color: #00FF88;
         }
 
-        /* --- Badge / mention spéciale --- */
+        /* --- Badge --- */
         .badge {
             display: inline-block;
             background: #00FF88;
@@ -123,7 +177,7 @@
             margin-top: 5px;
         }
 
-        /* --- Bloc CTA (appel à l'action) --- */
+        /* --- Bloc CTA --- */
         .cta-box {
             background: #0B1E36;
             border: 2px solid #00FF88;
@@ -157,8 +211,26 @@
             transform: scale(1.02);
         }
 
-        /* --- Responsive (mobile) --- */
-        @media (max-width: 700px) {
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 30px;
+            margin: 15px 0;
+        }
+        .contact-info span {
+            font-size: 1.05rem;
+        }
+        .contact-info a {
+            color: #00FF88;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 750px) {
             .container {
                 padding: 25px 20px;
             }
@@ -167,6 +239,9 @@
             }
             h2 {
                 font-size: 1.4rem;
+            }
+            .expertise-grid {
+                grid-template-columns: 1fr;
             }
             .price-table th,
             .price-table td {
@@ -177,6 +252,13 @@
                 padding: 12px 25px;
                 font-size: 1rem;
             }
+            .nav-menu {
+                justify-content: center;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -184,6 +266,17 @@
 <body>
 
 <div class="container">
+
+    <!-- ========================================= -->
+    <!-- MENU DE NAVIGATION                         -->
+    <!-- ========================================= -->
+    <nav class="nav-menu">
+        <a href="index.html">🏠 Accueil</a>
+        <a href="Bootcamp.html" class="active">🎓 Bootcamp</a>
+        <a href="#formations">📚 Formations</a>
+        <a href="#conferences">🎤 Conférences</a>
+        <a href="#contact">📞 Contact</a>
+    </nav>
 
     <!-- ========================================= -->
     <!-- TITRE PRINCIPAL                            -->
@@ -216,37 +309,69 @@
     </p>
 
     <!-- ========================================= -->
-    <!-- SECTION : LES 3 VOIES D'EXPERTISE         -->
+    <!-- SECTION : LES 5 VOIES D'EXPERTISE         -->
     <!-- ========================================= -->
-    <h2>🎯 Les 3 Voies d'Expertise</h2>
+    <h2>🎯 Les 5 Voies d'Expertise</h2>
     <p><em>Choisissez votre spécialité :</em></p>
 
-    <!-- BLUE TEAM -->
-    <h3>🔵 BLUE TEAM – La Défense</h3>
-    <p><em>Vous voulez être celui qui protège et anticipe les attaques ?</em></p>
-    <ul>
-        <li><strong>Métiers cibles</strong> : Analyste SOC, Administrateur Sécurité.</li>
-        <li><strong>Compétences clés</strong> : Analyse de logs, Surveillance des SIEM (Splunk/ELK), Détection et Réponse aux Incidents, Veille stratégique.</li>
-        <li><strong>Durée</strong> : 5 mois.</li>
-    </ul>
+    <div class="expertise-grid">
 
-    <!-- RED TEAM -->
-    <h3>🔴 RED TEAM – L'Attaque</h3>
-    <p><em>Vous voulez comprendre le fonctionnement des hackers pour mieux les contrer ?</em></p>
-    <ul>
-        <li><strong>Métiers cibles</strong> : Testeur d'intrusion (Pentesteur), Bug Bounty Hunter.</li>
-        <li><strong>Compétences clés</strong> : OSINT avancé, Exploitation des failles Web/Réseau/Active Directory, Rédaction de rapports professionnels.</li>
-        <li><strong>Durée</strong> : 5 mois.</li>
-    </ul>
+        <!-- 1. BLUE TEAM -->
+        <div class="expertise-card">
+            <h3>🔵 BLUE TEAM</h3>
+            <p><strong>La Défense</strong></p>
+            <ul>
+                <li><strong>Métiers</strong> : Analyste SOC, Admin Sécurité</li>
+                <li><strong>Compétences</strong> : Analyse de logs, SIEM (Splunk/ELK), Réponse à incident</li>
+                <li><strong>Durée</strong> : 5 mois</li>
+            </ul>
+        </div>
 
-    <!-- GRC -->
-    <h3>⚖️ GRC – La Gouvernance</h3>
-    <p><em>Vous voulez gérer la stratégie et la conformité des entreprises ?</em></p>
-    <ul>
-        <li><strong>Métiers cibles</strong> : Responsable Sécurité, Consultant en Risques, Responsable Conformité.</li>
-        <li><strong>Compétences clés</strong> : Normes ISO 27001 &amp; RGPD, Analyse de risques, Politiques de sécurité, Audit interne.</li>
-        <li><strong>Durée</strong> : 4 mois.</li>
-    </ul>
+        <!-- 2. RED TEAM -->
+        <div class="expertise-card">
+            <h3>🔴 RED TEAM</h3>
+            <p><strong>L'Attaque</strong></p>
+            <ul>
+                <li><strong>Métiers</strong> : Pentesteur, Bug Bounty Hunter</li>
+                <li><strong>Compétences</strong> : OSINT, Exploitation Web/Réseau/AD, Rapports</li>
+                <li><strong>Durée</strong> : 5 mois</li>
+            </ul>
+        </div>
+
+        <!-- 3. GRC -->
+        <div class="expertise-card">
+            <h3>⚖️ GRC</h3>
+            <p><strong>Gouvernance</strong></p>
+            <ul>
+                <li><strong>Métiers</strong> : Responsable Sécurité, Risques, Conformité</li>
+                <li><strong>Compétences</strong> : ISO 27001, RGPD, Analyse de risques, Audit</li>
+                <li><strong>Durée</strong> : 4 mois</li>
+            </ul>
+        </div>
+
+        <!-- 4. FORENSIQUE -->
+        <div class="expertise-card">
+            <h3>🔍 FORENSIQUE</h3>
+            <p><strong>Investigation Numérique</strong></p>
+            <ul>
+                <li><strong>Métiers</strong> : Expert Forensique, Analyste DFIR</li>
+                <li><strong>Compétences</strong> : Collecte de preuves, Analyse de disques, Mémoire, Journalisation</li>
+                <li><strong>Durée</strong> : 4 mois</li>
+            </ul>
+        </div>
+
+        <!-- 5. OSINT -->
+        <div class="expertise-card">
+            <h3>🌐 OSINT</h3>
+            <p><strong>Renseignement Open Source</strong></p>
+            <ul>
+                <li><strong>Métiers</strong> : Analyste OSINT, Cyber Veilleur</li>
+                <li><strong>Compétences</strong> : Recherche avancée, Réseaux sociaux, Fuites de données</li>
+                <li><strong>Durée</strong> : 3 mois</li>
+            </ul>
+        </div>
+
+    </div>
 
     <!-- ========================================= -->
     <!-- SECTION : DÉROULEMENT                     -->
@@ -256,10 +381,10 @@
     <p>Le Bootcamp est hybride : il alterne entre <strong>apprentissage théorique</strong> et <strong>mise en pratique intensive</strong> pour ancrer les compétences durablement.</p>
 
     <ul>
-        <li><strong>📆 Sessions Hebdomadaires (Live)</strong> : Tous les jeudis soir (ou selon le planning défini), participez à une classe virtuelle de 2h. On y décortique un thème précis (ex: "Escalade de privilèges sous Windows" ou "Les 10 failles OWASP").</li>
-        <li><strong>💻 Labs Pratiques</strong> : Chaque semaine, recevez des "rooms" spécifiques à résoudre sur TryHackMe ou HackTheBox. Ici, c'est vous qui tapez sur le clavier.</li>
-        <li><strong>🤝 Suivi Personnalisé</strong> : Un créneau de 30 minutes par semaine est dédié à la correction de vos rapports et à la résolution de vos blocages personnels.</li>
-        <li><strong>🏆 Projet Final (Certificatif)</strong> : En fin de parcours, réalisez une mission complète (Audit ou Analyse). Vous repartez avec un rapport professionnel que vous pouvez ajouter à votre portfolio GitHub.</li>
+        <li><strong>📆 Sessions Hebdomadaires (Live)</strong> : Tous les jeudis soir (ou selon le planning défini), participez à une classe virtuelle de 2h.</li>
+        <li><strong>💻 Labs Pratiques</strong> : Chaque semaine, recevez des "rooms" spécifiques à résoudre sur TryHackMe ou HackTheBox.</li>
+        <li><strong>🤝 Suivi Personnalisé</strong> : Un créneau de 30 minutes par semaine pour corriger vos rapports et débloquer vos situations.</li>
+        <li><strong>🏆 Projet Final</strong> : Une mission complète (Audit, Analyse ou Investigation) avec un rapport professionnel pour votre portfolio.</li>
     </ul>
 
     <!-- ========================================= -->
@@ -268,14 +393,14 @@
     <h2>🎁 Ce qui est inclus dans votre Pack</h2>
 
     <ul>
-        <li><strong>Un planning personnalisé</strong> : Adapté à votre niveau (débutant ou intermédiaire) et à vos disponibilités.</li>
-        <li><strong>Des ressources exclusives</strong> : Mes notes personnelles, des vidéos privées et des "Cheat Sheets" pour gagner des heures de recherche.</li>
-        <li><strong>Un Mentor Humain</strong> : Un vrai contact humain (moi-même) pour vous guider, contrairement aux cours pré-enregistrés.</li>
-        <li><strong>Préparation aux Certifications</strong> : Nous préparons les examens qui feront la différence sur votre CV (Security+, eJPT, PNPT).</li>
+        <li><strong>Un planning personnalisé</strong> : Adapté à votre niveau et vos disponibilités.</li>
+        <li><strong>Des ressources exclusives</strong> : Notes, vidéos privées, Cheat Sheets.</li>
+        <li><strong>Un Mentor Humain</strong> : Un vrai contact humain pour vous guider.</li>
+        <li><strong>Préparation aux Certifications</strong> : Security+, eJPT, PNPT, etc.</li>
     </ul>
 
     <!-- ========================================= -->
-    <!-- SECTION : TARIFS (TABLEAU)               -->
+    <!-- SECTION : TARIFS                         -->
     <!-- ========================================= -->
     <h2>💰 Investissement (Offre de Lancement)</h2>
 
@@ -316,7 +441,7 @@
         <strong>Le processus d'inscription est simple :</strong>
     </p>
     <ol>
-        <li><strong>Contactez-moi</strong> via WhatsApp en m'envoyant votre <strong>CV</strong> (même simple) et votre <strong>objectif</strong> (Blue, Red ou GRC).</li>
+        <li><strong>Contactez-moi</strong> via WhatsApp en m'envoyant votre <strong>CV</strong> (même simple) et votre <strong>objectif</strong> (Blue, Red, GRC, Forensique ou OSINT).</li>
         <li>Nous planifions un <strong>entretien de motivation de 15 minutes</strong> (gratuit) pour valider votre niveau et bâtir votre planning personnalisé.</li>
         <li>Je valide votre inscription, et nous commençons l'aventure.</li>
     </ol>
@@ -324,12 +449,14 @@
     <!-- BLOC CTA -->
     <div class="cta-box">
         <p style="font-size:1.2rem; font-weight:700;">📬 Vous avez des questions ? Parlons-en.</p>
-        <p>
-            📱 <strong>WhatsApp</strong> : <a href="https://wa.me/244922400" style="color:#00FF88; text-decoration:none;">+244 922 400</a><br>
-            📧 <strong>Email</strong> : <a href="mailto:cybmatconsul@gmail.com" style="color:#00FF88; text-decoration:none;">cybmatconsul@gmail.com</a><br>
-            💻 <strong>Portfolio</strong> : <a href="https://github.com/SahlOguen/portofolio" style="color:#00FF88; text-decoration:none;" target="_blank">github.com/SahlOguen/portofolio</a>
-        </p>
-        <a href="https://wa.me/244922400" class="btn">📲 Envoyer un message</a>
+        
+        <div class="contact-info">
+            <span>📱 <strong>Téléphone</strong> : <a href="tel:+244922700402">+244 922 700 402</a></span>
+            <span>💬 <strong>WhatsApp</strong> : <a href="https://wa.me/244957157011" target="_blank">+244 957 157 011</a></span>
+            <span>📧 <strong>Email</strong> : <a href="mailto:cybmatconsul@gmail.com">cybmatconsul@gmail.com</a></span>
+        </div>
+
+        <a href="https://wa.me/244957157011" class="btn">📲 Envoyer un message WhatsApp</a>
     </div>
 
     <!-- ========================================= -->
@@ -344,4 +471,3 @@
 
 </body>
 </html>
-
