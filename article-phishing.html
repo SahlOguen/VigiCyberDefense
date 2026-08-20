@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment repérer un e-mail de phishing ? - CyberBlog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: #f8faff;
+            color: #0b1a33;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- HEADER ----- */
+        .article-header {
+            background: #ffffff;
+            border-bottom: 1px solid #edf2f8;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .article-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .article-header .brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .article-header .brand span {
+            color: #1a3a8a;
+        }
+
+        .article-header .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1a3a8a;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 60px;
+            background: #eef4fc;
+            transition: background 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .article-header .back-link:hover {
+            background: #dce6f8;
+        }
+
+        /* ----- CONTENU DE L'ARTICLE ----- */
+        .article-content {
+            padding: 50px 0 60px;
+        }
+
+        .article-content .badge {
+            display: inline-block;
+            background: #eef4fc;
+            color: #1a3a8a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 18px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .article-content h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .article-content .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 30px;
+            color: #5b6f8e;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #edf2f8;
+        }
+
+        .article-content .meta i {
+            margin-right: 6px;
+            color: #1a3a8a;
+        }
+
+        .article-content .featured-image {
+            background: #e6eefa;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 30px;
+            border: 1px solid rgba(26, 42, 108, 0.06);
+        }
+
+        .article-content h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 35px 0 16px;
+            color: #0b1a33;
+        }
+
+        .article-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 28px 0 12px;
+            color: #1a2a4a;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            color: #2d3f5e;
+            margin-bottom: 18px;
+        }
+
+        .article-content ul {
+            margin: 16px 0 24px 28px;
+            color: #2d3f5e;
+            font-size: 1.02rem;
+        }
+
+        .article-content ul li {
+            margin-bottom: 12px;
+        }
+
+        .article-content ul li::marker {
+            color: #1a3a8a;
+        }
+
+        .article-content .warning-box {
+            background: #fff6e5;
+            border-left: 4px solid #e67e22;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin: 20px 0 28px;
+        }
+
+        .article-content .warning-box strong {
+            color: #c0392b;
+        }
+
+        /* ----- VIDÉO ----- */
+        .video-wrapper {
+            background: #0b1a33;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 30px 0 36px;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #718096;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+
+        /* ----- AUTEUR & PARTAGE ----- */
+        .article-footer {
+            border-top: 1px solid #edf2f8;
+            padding-top: 30px;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .article-footer .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .article-footer .author .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a3a8a, #3b6bc4);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .article-footer .author .name {
+            font-weight: 600;
+        }
+
+        .article-footer .author .role {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+
+        .article-footer .share {
+            display: flex;
+            gap: 12px;
+        }
+
+        .article-footer .share a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #eef4fc;
+            color: #1a3a8a;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .article-footer .share a:hover {
+            background: #dce6f8;
+            transform: translateY(-2px);
+        }
+
+        .cta-back {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-back a {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a3a8a, #2d5bb5);
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(26, 42, 108, 0.20);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .cta-back a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(26, 42, 108, 0.30);
+        }
+
+        .site-footer {
+            background: #ffffff;
+            border-top: 1px solid #edf2f8;
+            padding: 30px 0;
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            .article-content h1 {
+                font-size: 1.8rem;
+            }
+            .article-content h2 {
+                font-size: 1.3rem;
+            }
+            .article-content p {
+                font-size: 0.98rem;
+            }
+            .article-header .brand {
+                font-size: 1rem;
+            }
+            .article-header .back-link {
+                font-size: 0.8rem;
+                padding: 6px 14px;
+            }
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-content {
+                padding: 30px 0 40px;
+            }
+            .article-content h1 {
+                font-size: 1.5rem;
+            }
+            .featured-image {
+                font-size: 2.5rem !important;
+                padding: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="article-header">
+        <div class="container">
+            <div class="brand">Cyber<span>Blog</span></div>
+            <a href="index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Retour au blog</a>
+        </div>
+    </header>
+
+    <!-- ===== ARTICLE ===== -->
+    <main class="article-content">
+        <div class="container">
+
+            <span class="badge">🛡️ Sécurité &amp; Sensibilisation</span>
+            <h1>Comment repérer un e-mail de phishing ?</h1>
+
+            <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> 24 Juin 2024</span>
+                <span><i class="far fa-clock"></i> Lecture : 6 min</span>
+                <span><i class="fas fa-tag"></i> Phishing, Hameçonnage, Sécurité</span>
+            </div>
+
+            <div class="featured-image">
+                🎣 Hameçonnage
+            </div>
+
+            <p>
+                Le <strong>phishing</strong> (ou hameçonnage) est l'une des menaces les plus répandues et les plus dangereuses en cybersécurité. Chaque jour, des millions d'e-mails frauduleux sont envoyés dans le monde entier, visant à voler vos identifiants, vos données bancaires ou vos informations personnelles.
+            </p>
+
+            <p>
+                Les attaques par hameçonnage sont en hausse constante. En 2024, on estime que <strong>plus de 90% des cyberattaques</strong> commencent par un e-mail de phishing. Mais bonne nouvelle : la plupart de ces e-mails présentent des signes qui ne trompent pas. Voici <strong>les 5 signes infaillibles</strong> pour les repérer et protéger vos collaborateurs.
+            </p>
+
+            <h2>📧 Signe n°1 : L'expéditeur suspect</h2>
+            <p>
+                Le premier réflexe à avoir est de <strong>vérifier l'adresse e-mail de l'expéditeur</strong>. Les cybercriminels utilisent souvent des adresses qui ressemblent à des adresses légitimes, mais avec de légères variations.
+            </p>
+            <ul>
+                <li><strong>Exemple frauduleux :</strong> <code>support@paypa1.com</code> (le "l" est en fait un "1")</li>
+                <li><strong>Exemple frauduleux :</strong> <code>contact@banque-france-securite.com</code> (domaine suspect)</li>
+                <li><strong>Bon réflexe :</strong> Passez votre souris sur le nom de l'expéditeur pour voir l'adresse complète.</li>
+            </ul>
+
+            <h2>📧 Signe n°2 : Un sentiment d'urgence</h2>
+            <p>
+                Les e-mails de phishing jouent sur vos émotions. Ils créent un <strong>sentiment d'urgence</strong> pour vous pousser à agir sans réfléchir.
+            </p>
+            <ul>
+                <li><strong>Exemples :</strong> "Votre compte va être suspendu dans 24h", "Action immédiate requise", "Votre paiement a échoué"</li>
+                <li><strong>Bon réflexe :</strong> Prenez du recul. Une vraie entreprise ne vous demandera jamais d'agir dans l'urgence par e-mail.</li>
+            </ul>
+
+            <h2>📧 Signe n°3 : Des fautes d'orthographe et de grammaire</h2>
+            <p>
+                Les e-mails professionnels légitimes sont généralement bien rédigés. Les e-mails de phishing contiennent souvent des <strong>fautes d'orthographe, des tournures de phrases étranges</strong> ou des incohérences.
+            </p>
+            <ul>
+                <li><strong>Exemple :</strong> "Nous avons constater une activité inhabituelle sur votre conte"</li>
+                <li><strong>Bon réflexe :</strong> Méfiez-vous des e-mails mal rédigés, même s'ils semblent provenir d'une entreprise connue.</li>
+            </ul>
+
+            <h2>📧 Signe n°4 : Des liens ou pièces jointes suspects</h2>
+            <p>
+                Les liens et les pièces jointes sont les vecteurs principaux des attaques. Un e-mail de phishing vous incitera à <strong>cliquer sur un lien</strong> ou à <strong>ouvrir une pièce jointe</strong>.
+            </p>
+            <ul>
+                <li><strong>Exemple :</strong> "Cliquez ici pour vérifier votre compte"</li>
+                <li><strong>Bon réflexe :</strong> Passez votre souris sur le lien (sans cliquer !) pour voir l'URL réelle. Si elle ne correspond pas au site officiel, c'est un piège.</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Attention :</strong> N'ouvrez <strong>jamais</strong> une pièce jointe ou ne cliquez <strong>jamais</strong> sur un lien provenant d'un expéditeur que vous ne connaissez pas ou qui vous semble suspect.
+            </div>
+
+            <h2>📧 Signe n°5 : Demande d'informations personnelles</h2>
+            <p>
+                Un e-mail de phishing vous demandera presque toujours de <strong>fournir des informations sensibles</strong> : mot de passe, numéro de carte bancaire, identifiants, etc.
+            </p>
+            <ul>
+                <li><strong>Exemples :</strong> "Veuillez confirmer vos identifiants", "Mettez à jour vos informations bancaires"</li>
+                <li><strong>Bon réflexe :</strong> Une entreprise légitime <strong>ne vous demandera jamais</strong> ce type d'informations par e-mail.</li>
+            </ul>
+
+            <!-- ===== VIDÉO YOUTUBE ===== -->
+            <h2>🎥 Comment repérer un phishing en 5 minutes</h2>
+            <p>
+                Pour mieux visualiser ces signes, voici une vidéo explicative qui montre des exemples concrets d'e-mails de phishing :
+            </p>
+
+            <div class="video-wrapper">
+                <!-- Remplacez l'URL ci-dessous par la vidéo YouTube de votre choix -->
+                <iframe src="https://www.youtube.com/embed/qGTKKoFPMW0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">
+                📺 Une vidéo pour apprendre à détecter les tentatives de phishing en quelques secondes.
+            </p>
+
+            <h2>🛡️ Que faire si vous avez un doute ?</h2>
+            <p>
+                Si vous recevez un e-mail suspect :
+            </p>
+            <ul>
+                <li><strong>Ne cliquez sur rien</strong> et ne répondez pas.</li>
+                <li><strong>Contactez</strong> directement la personne ou l'entreprise par un autre canal (téléphone, site officiel).</li>
+                <li><strong>Signalez</strong> l'e-mail comme "hameçonnage" ou "spam" à votre fournisseur de messagerie.</li>
+                <li><strong>Formez</strong> vos collaborateurs régulièrement pour qu'ils soient vigilants.</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>📌 À retenir :</strong> La <strong>sensibilisation</strong> est votre meilleure défense contre le phishing. Un employé bien formé est un rempart solide contre les cyberattaques.
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>
+                Le phishing est une menace constante, mais avec ces <strong>5 signes clés</strong>, vous êtes désormais mieux armé pour protéger vos données et celles de vos collaborateurs. Restez vigilant, formez vos équipes et n'hésitez jamais à vérifier un e-mail suspect.
+            </p>
+
+            <!-- ===== AUTEUR & PARTAGE ===== -->
+            <div class="article-footer">
+                <div class="author">
+                    <div class="avatar">CE</div>
+                    <div>
+                        <div class="name">Cyber Expert</div>
+                        <div class="role">Spécialiste en cybersécurité</div>
+                    </div>
+                </div>
+                <div class="share">
+                    <a href="#" title="Partager sur LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="Partager sur Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Partager par email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="cta-back">
+                <a href="index.html#blog"><i class="fas fa-arrow-left"></i> Voir tous les articles</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 CyberBlog. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
