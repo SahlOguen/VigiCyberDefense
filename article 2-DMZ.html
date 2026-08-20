@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu'est-ce qu'une DMZ réseau ? - CyberBlog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: #f8faff;
+            color: #0b1a33;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- HEADER ----- */
+        .article-header {
+            background: #ffffff;
+            border-bottom: 1px solid #edf2f8;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .article-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .article-header .brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .article-header .brand span {
+            color: #1a3a8a;
+        }
+
+        .article-header .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1a3a8a;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 60px;
+            background: #eef4fc;
+            transition: background 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .article-header .back-link:hover {
+            background: #dce6f8;
+        }
+
+        /* ----- CONTENU DE L'ARTICLE ----- */
+        .article-content {
+            padding: 50px 0 60px;
+        }
+
+        .article-content .badge {
+            display: inline-block;
+            background: #eef4fc;
+            color: #1a3a8a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 18px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .article-content h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .article-content .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 30px;
+            color: #5b6f8e;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #edf2f8;
+        }
+
+        .article-content .meta i {
+            margin-right: 6px;
+            color: #1a3a8a;
+        }
+
+        .article-content .featured-image {
+            background: #e6eefa;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 30px;
+            border: 1px solid rgba(26, 42, 108, 0.06);
+        }
+
+        .article-content h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 35px 0 16px;
+            color: #0b1a33;
+        }
+
+        .article-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 28px 0 12px;
+            color: #1a2a4a;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            color: #2d3f5e;
+            margin-bottom: 18px;
+        }
+
+        .article-content ul {
+            margin: 16px 0 24px 28px;
+            color: #2d3f5e;
+            font-size: 1.02rem;
+        }
+
+        .article-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .article-content ul li::marker {
+            color: #1a3a8a;
+        }
+
+        /* ----- INTÉGRATION VIDÉO ----- */
+        .video-wrapper {
+            background: #0b1a33;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 30px 0 36px;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #718096;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+
+        /* ----- ZONE DE PARTAGE / AUTEUR ----- */
+        .article-footer {
+            border-top: 1px solid #edf2f8;
+            padding-top: 30px;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .article-footer .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .article-footer .author .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a3a8a, #3b6bc4);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .article-footer .author .name {
+            font-weight: 600;
+        }
+
+        .article-footer .author .role {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+
+        .article-footer .share {
+            display: flex;
+            gap: 12px;
+        }
+
+        .article-footer .share a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #eef4fc;
+            color: #1a3a8a;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .article-footer .share a:hover {
+            background: #dce6f8;
+            transform: translateY(-2px);
+        }
+
+        /* ----- CTA RETOUR ----- */
+        .cta-back {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-back a {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a3a8a, #2d5bb5);
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(26, 42, 108, 0.20);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .cta-back a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(26, 42, 108, 0.30);
+        }
+
+        /* ----- FOOTER ----- */
+        .site-footer {
+            background: #ffffff;
+            border-top: 1px solid #edf2f8;
+            padding: 30px 0;
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            .article-content h1 {
+                font-size: 1.8rem;
+            }
+            .article-content h2 {
+                font-size: 1.3rem;
+            }
+            .article-content p {
+                font-size: 0.98rem;
+            }
+            .article-header .brand {
+                font-size: 1rem;
+            }
+            .article-header .back-link {
+                font-size: 0.8rem;
+                padding: 6px 14px;
+            }
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-content {
+                padding: 30px 0 40px;
+            }
+            .article-content h1 {
+                font-size: 1.5rem;
+            }
+            .featured-image {
+                font-size: 2.5rem !important;
+                padding: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="article-header">
+        <div class="container">
+            <div class="brand">Cyber<span>Blog</span></div>
+            <a href="index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Retour au blog</a>
+        </div>
+    </header>
+
+    <!-- ===== ARTICLE ===== -->
+    <main class="article-content">
+        <div class="container">
+
+            <span class="badge">📡 Réseau &amp; Sécurité</span>
+            <h1>Qu'est-ce qu'une DMZ réseau ?</h1>
+
+            <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> 18 Juin 2024</span>
+                <span><i class="far fa-clock"></i> Lecture : 5 min</span>
+                <span><i class="fas fa-tag"></i> Architecture réseau, Sécurité</span>
+            </div>
+
+            <!-- Image d'illustration -->
+            <div class="featured-image">
+                🌐 Architecture DMZ
+            </div>
+
+            <p>
+                La <strong>DMZ (DeMilitarized Zone)</strong>, ou zone démilitarisée en français, est une sous-partie d'un réseau informatique qui agit comme une <strong>zone tampon</strong> entre le réseau interne (privé) et le réseau externe (Internet). Elle permet d'exposer certains services publics tout en protégeant les ressources sensibles de l'entreprise.
+            </p>
+
+            <h2>Pourquoi créer une DMZ ?</h2>
+            <p>
+                L'objectif principal de la DMZ est de <strong>renforcer la sécurité</strong> en limitant l'accès direct aux serveurs critiques. En plaçant les serveurs web, mail ou DNS dans la DMZ, vous réduisez considérablement la surface d'attaque : si un attaquant compromet un serveur dans la DMZ, il ne pourra pas accéder directement au réseau interne.
+            </p>
+
+            <h2>Comment fonctionne une DMZ ?</h2>
+            <p>
+                Schématiquement, la DMZ se situe entre deux pare-feux (firewalls) :
+            </p>
+            <ul>
+                <li><strong>Pare-feu externe</strong> : filtre le trafic entrant depuis Internet vers la DMZ.</li>
+                <li><strong>Pare-feu interne</strong> : filtre le trafic entre la DMZ et le réseau interne.</li>
+            </ul>
+            <p>
+                Cette architecture permet de contrôler précisément quels flux sont autorisés. Par exemple, un utilisateur d'Internet peut accéder au site web (dans la DMZ), mais ne peut pas accéder directement aux bases de données internes qui restent protégées derrière le second pare-feu.
+            </p>
+
+            <!-- ===== INTÉGRATION VIDÉO YOUTUBE (INTERNE) ===== -->
+            <h2>🎥 Comprendre la DMZ en 5 minutes</h2>
+            <p>
+                Pour visualiser concrètement comment une DMZ se met en place et protège vos systèmes, voici une explication vidéo :
+            </p>
+
+            <div class="video-wrapper">
+                <!-- Remplacez l'URL YouTube ci-dessous par celle de votre vidéo préférée sur le sujet -->
+                <iframe src="https://www.youtube.com/embed/qGTKKoFPMW0" allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">
+                📺 Une vidéo explicative pour bien comprendre le rôle et l'architecture de la DMZ.
+            </p>
+
+            <h2>Les bonnes pratiques pour une DMZ sécurisée</h2>
+            <ul>
+                <li><strong>Isoler les services</strong> : chaque serveur dans la DMZ doit avoir un rôle unique (ex : un serveur web, un serveur mail séparé).</li>
+                <li><strong>Règles de filtrage strictes</strong> : n'autorisez que les ports et protocoles strictement nécessaires.</li>
+                <li><strong>Journalisation et surveillance</strong> : activez les logs et mettez en place une supervision pour détecter toute anomalie.</li>
+                <li><strong>Mises à jour régulières</strong> : les serveurs exposés sont les plus vulnérables, maintenez-les à jour.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+                La DMZ est un pilier de l'architecture réseau sécurisée en entreprise. Elle permet de concilier <strong>accessibilité des services</strong> et <strong>protection des données sensibles</strong>. Une bonne conception de DMZ, associée à une politique de sécurité rigoureuse, réduit considérablement les risques d'intrusion.
+            </p>
+
+            <!-- ===== AUTEUR & PARTAGE ===== -->
+            <div class="article-footer">
+                <div class="author">
+                    <div class="avatar">CA</div>
+                    <div>
+                        <div class="name">Cyber Expert</div>
+                        <div class="role">Architecte Sécurité &amp; Formateur</div>
+                    </div>
+                </div>
+                <div class="share">
+                    <a href="#" title="Partager sur LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="Partager sur Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Partager par email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- ===== CTA RETOUR ===== -->
+            <div class="cta-back">
+                <a href="index.html#blog"><i class="fas fa-arrow-left"></i> Voir tous les articles</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 CyberBlog. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
