@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment cacher ses traces sur Internet ? - VigiCyberDefenseBlog</title>
+    <meta name="description" content="Découvrez les techniques d'anonymat numérique : MAC Spoofing, VPN, réseau TOR et bonnes pratiques pour protéger votre vie privée en ligne.">
+    <meta property="og:image" content="https://sahloguen.github.io/VigiCyberDefense/images/anonymat.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8faff; color: #0b1a33; line-height: 1.7; }
+        .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+        .article-header { background: #ffffff; border-bottom: 1px solid #edf2f8; padding: 18px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.92); }
+        .article-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .article-header .brand { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; }
+        .article-header .brand span { color: #1a3a8a; }
+        .article-header .back-link { display: inline-flex; align-items: center; gap: 8px; color: #1a3a8a; font-weight: 600; text-decoration: none; padding: 8px 20px; border-radius: 60px; background: #eef4fc; transition: background 0.2s; font-size: 0.9rem; }
+        .article-header .back-link:hover { background: #dce6f8; }
+        .article-content { padding: 50px 0 60px; }
+        .article-content .badge { display: inline-block; background: #eef4fc; color: #1a3a8a; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 4px 18px; border-radius: 50px; margin-bottom: 16px; }
+        .article-content h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 12px; }
+        .article-content .meta { display: flex; flex-wrap: wrap; gap: 16px 30px; color: #5b6f8e; font-size: 0.9rem; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #edf2f8; }
+        .article-content .meta i { margin-right: 6px; color: #1a3a8a; }
+        .article-content .featured-image { background: #e6eefa; border-radius: 20px; padding: 30px; text-align: center; font-size: 4rem; margin-bottom: 30px; border: 1px solid rgba(26, 42, 108, 0.06); }
+        .article-content h2 { font-size: 1.6rem; font-weight: 700; margin: 35px 0 16px; color: #0b1a33; }
+        .article-content h3 { font-size: 1.2rem; font-weight: 700; margin: 28px 0 12px; color: #1a2a4a; }
+        .article-content p { font-size: 1.05rem; color: #2d3f5e; margin-bottom: 18px; }
+        .article-content ul { margin: 16px 0 24px 28px; color: #2d3f5e; font-size: 1.02rem; }
+        .article-content ul li { margin-bottom: 10px; }
+        .article-content ul li::marker { color: #1a3a8a; }
+        .article-content .code-block { background: #0b1a33; color: #e6eefa; padding: 16px 24px; border-radius: 12px; font-family: 'Courier New', monospace; font-size: 0.95rem; margin: 16px 0 24px; overflow-x: auto; }
+        .article-content .info-box { background: #e8f0fe; border-left: 4px solid #1a3a8a; padding: 16px 24px; border-radius: 12px; margin: 20px 0 28px; }
+        .article-content .info-box strong { color: #1a3a8a; }
+        .article-content .warning-box { background: #fff6e5; border-left: 4px solid #e67e22; padding: 16px 24px; border-radius: 12px; margin: 20px 0 28px; }
+        .article-content .warning-box strong { color: #c0392b; }
+        .article-footer { border-top: 1px solid #edf2f8; padding-top: 30px; margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+        .article-footer .author { display: flex; align-items: center; gap: 14px; }
+        .article-footer .author .avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #1a3a8a, #3b6bc4); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
+        .article-footer .author .name { font-weight: 600; }
+        .article-footer .author .role { font-size: 0.85rem; color: #718096; }
+        .article-footer .share { display: flex; gap: 12px; }
+        .article-footer .share a { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: #eef4fc; color: #1a3a8a; text-decoration: none; transition: background 0.2s, transform 0.2s; font-size: 1.1rem; }
+        .article-footer .share a:hover { background: #dce6f8; transform: translateY(-2px); }
+        .cta-back { text-align: center; margin-top: 40px; }
+        .cta-back a { display: inline-block; background: linear-gradient(135deg, #1a3a8a, #2d5bb5); color: #fff; font-weight: 600; padding: 14px 40px; border-radius: 60px; text-decoration: none; box-shadow: 0 6px 24px rgba(26, 42, 108, 0.20); transition: transform 0.2s, box-shadow 0.3s; }
+        .cta-back a:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(26, 42, 108, 0.30); }
+        .site-footer { background: #ffffff; border-top: 1px solid #edf2f8; padding: 30px 0; text-align: center; color: #718096; font-size: 0.9rem; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        table th { background: #1a3a8a; color: #fff; padding: 10px 16px; text-align: left; }
+        table td { padding: 10px 16px; border-bottom: 1px solid #edf2f8; }
+        table tr:nth-child(even) { background: #f8faff; }
+        @media (max-width: 768px) {
+            .article-content h1 { font-size: 1.8rem; }
+            .article-content h2 { font-size: 1.3rem; }
+            .article-content p { font-size: 0.98rem; }
+            .article-header .brand { font-size: 1rem; }
+            .article-header .back-link { font-size: 0.8rem; padding: 6px 14px; }
+            .article-footer { flex-direction: column; align-items: flex-start; }
+        }
+        @media (max-width: 480px) {
+            .article-content { padding: 30px 0 40px; }
+            .article-content h1 { font-size: 1.5rem; }
+            .featured-image { font-size: 2.5rem !important; padding: 20px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="article-header">
+        <div class="container">
+            <div class="brand">VigiCyberDefense<span>Blog</span></div>
+            <a href="index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Retour au blog</a>
+        </div>
+    </header>
+
+    <main class="article-content">
+        <div class="container">
+
+            <span class="badge">🕵️ Vie Privée & Anonymat</span>
+            <h1>Comment cacher ses traces sur Internet ?</h1>
+
+            <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> 22 Août 2026</span>
+                <span><i class="far fa-clock"></i> Lecture : 8 min</span>
+                <span><i class="fas fa-tag"></i> Anonymat, MAC Spoofing, VPN, TOR</span>
+            </div>
+
+            <div class="featured-image">
+                🕵️ Anonymat numérique
+            </div>
+
+            <p>
+                Saviez-vous que chaque fois que vous vous connectez à Internet, vous laissez des <strong>empreintes numériques</strong> ? Que vous soyez un professionnel de la cybersécurité, un journaliste ou simplement un utilisateur soucieux de sa vie privée, il existe plusieurs techniques pour <strong>masquer vos traces</strong> en ligne.
+            </p>
+
+            <div class="info-box">
+                <strong>📌 Définition :</strong> L'empreinte numérique est l'ensemble des données que vous laissez volontairement ou involontairement sur Internet. Elle peut être utilisée pour vous identifier, vous suivre ou vous cibler.
+            </div>
+
+            <h2>🔑 1. MAC Spoofing – Tromper le réseau local</h2>
+            <p>
+                Votre appareil possède une <strong>adresse MAC</strong> (Media Access Control) unique, attribuée par le fabricant. C'est comme une <strong>carte d'identité</strong> pour votre carte réseau.
+            </p>
+            <ul>
+                <li><strong>Le problème</strong> : Les routeurs et les administrateurs réseau peuvent vous identifier via cette adresse.</li>
+                <li><strong>La solution</strong> : Le <strong>MAC Spoofing</strong> consiste à <strong>changer temporairement</strong> l'adresse MAC de votre appareil.</li>
+            </ul>
+
+            <h3>🧠 La notion d'OUI (Organizationally Unique Identifier)</h3>
+            <p>
+                Les 3 premiers octets d'une adresse MAC identifient le <strong>fabricant</strong> :
+            </p>
+            <ul>
+                <li><code>00:1A:2B</code> → Apple 🍏</li>
+                <li><code>00:17:9A</code> → Dell 💻</li>
+                <li><code>08:00:27</code> → VirtualBox</li>
+            </ul>
+            <p>
+                En modifiant votre adresse MAC, vous pouvez <strong>masquer le type d'appareil</strong> que vous utilisez et rendre votre traçabilité plus difficile.
+            </p>
+
+            <div class="code-block">
+                # Exemple de MAC Spoofing sous Linux
+                sudo ifconfig eth0 down
+                sudo ifconfig eth0 hw ether 00:11:22:33:44:55
+                sudo ifconfig eth0 up
+            </div>
+
+            <h2>🌐 2. VPN – Le tunnel chiffré</h2>
+            <p>
+                Un <strong>VPN (Virtual Private Network)</strong> crée un <strong>tunnel chiffré</strong> entre votre appareil et un serveur distant. Toutes vos données transitent par ce tunnel, ce qui :
+            </p>
+            <ul>
+                <li>Cache votre <strong>adresse IP</strong> réelle.</li>
+                <li>Chiffre vos données (les FAI et les pirates ne peuvent pas les lire).</li>
+                <li>Permet de contourner les <strong>restrictions géographiques</strong>.</li>
+            </ul>
+            <div class="warning-box">
+                <strong>🔴 Attention :</strong> Tous les VPN ne se valent pas. Privilégiez un <strong>VPN sans logs</strong> comme ProtonVPN, Mullvad ou NordVPN.
+            </div>
+
+            <h2>🧅 3. Le réseau TOR – L'anonymat ultime</h2>
+            <p>
+                Le réseau <strong>TOR (The Onion Router)</strong> est un réseau décentralisé qui <strong>fait passer votre trafic par plusieurs relais</strong> (comme les couches d'un oignon) avant d'atteindre sa destination.
+            </p>
+            <ul>
+                <li><strong>Avantage</strong> : Votre adresse IP est masquée de manière quasi impossible à tracer.</li>
+                <li><strong>Inconvénient</strong> : La vitesse est réduite et certains sites bloquent le trafic TOR.</li>
+            </ul>
+            <p>
+                <strong>Bon à savoir</strong> : Le navigateur TOR est un Firefox modifié qui inclut automatiquement des protections contre le fingerprinting.
+            </p>
+
+            <h2>🛡️ 4. Bonnes pratiques complémentaires</h2>
+
+            <table>
+                <thead>
+                    <tr><th>Technique</th><th>Utilité</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Désactiver les cookies tiers</td><td>Limite le suivi publicitaire</td></tr>
+                    <tr><td>Utiliser un moteur de recherche privé</td><td>DuckDuckGo, Startpage</td></tr>
+                    <tr><td>Désactiver le Wi-Fi et Bluetooth</td><td>Évite les fuites de localisation</td></tr>
+                    <tr><td>Utiliser des mots de passe uniques</td><td>Évite la corrélation entre comptes</td></tr>
+                </tbody>
+            </table>
+
+            <h2>📌 Conclusion</h2>
+            <p>
+                Cacher ses traces sur Internet n'est pas réservé aux hackers. C'est un <strong>droit</strong> et une <strong>nécessité</strong> pour protéger sa vie privée. En combinant <strong>MAC Spoofing</strong>, <strong>VPN</strong> et <strong>TOR</strong>, vous pouvez atteindre un niveau d'anonymat très élevé.
+            </p>
+            <div class="info-box">
+                <strong>💡 La règle d'or :</strong> Plus vous utilisez d'outils en combinaison, plus vous êtes difficile à tracer.
+            </div>
+
+            <div class="article-footer">
+                <div class="author">
+                    <div class="avatar">VCD</div>
+                    <div>
+                        <div class="name">VigiCyberDefense</div>
+                        <div class="role">Spécialiste en Cybersécurité</div>
+                    </div>
+                </div>
+                <div class="share">
+                    <a href="#" title="Partager sur LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="Partager sur Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Partager par email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="cta-back">
+                <a href="index.html#blog"><i class="fas fa-arrow-left"></i> Voir tous les articles</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 VigiCyberDefenseBlog. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
